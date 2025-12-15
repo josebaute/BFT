@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BFTech - Soluciones Tecnológicas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+
+  <header>
+    <div class="logo">
+      <img src="assets/img/BFT-logo.png" alt="BFTech Logo" />
+    </div>
+    <nav class="navbar">
+      <a href="#services">Servicios</a>
+      <a href="#about">Sobre Nosotros</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <script src="scripts/hamburger.js"></script>
+  </header>
+
+  <body>
+    <!-- Fondo de partículas -->
+    <!--<canvas id="particles"></canvas>-->
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="gridHero">
+        <div>
+          <h1 id="title">Soluciones digitales avanzadas</h1>
+          <p id="subtitle">
+            Creamos software, webs y tecnología a medida para tu negocio.
+          </p>
+          <button id="title" class="btn">Hablar con nosotros</button>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-down" id="title">
+        <span></span>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <div class="quehacemos" id="title">
+      <h1 class="reveal-title">Nuestros Servicios</h1>
+    </div>
+
+    <section class="services">
+      <div class="service-card">
+        <h3>Desarrollo Web</h3>
+        <p>Webs modernas, rápidas y optimizadas para tu negocio.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Software a medida</h3>
+        <p>Aplicaciones creadas 100% según tus necesidades.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Apps móviles</h3>
+        <p>Aplicaciones nativas e híbridas para iOS y Android.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Consultoría Tecnológica</h3>
+        <p>Te guiamos para tomar decisiones tecnológicas estratégicas.</p>
+      </div>
+    </section>
+
+    <!-- How we Do It -->
+
+    <section class="how-we-work">
+      <h1 class="reveal-title" id="title">Cómo lo hacemos</h1>
+      <br />
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <div class="stages">
+        <div class="stage">1. Planificación</div>
+        <div class="stage">2. Diseño</div>
+        <div class="stage">3. Desarrollo</div>
+        <div class="stage">4. Testing</div>
+        <div class="stage">5. Lanzamiento</div>
+      </div>
+      <script src="scripts/hwdBar.js"></script>
+    </section>
+
+    <!-- Foto y explicacion-->
+    <section>
+
+    </section>
+
+    <!-- Portfolio -->
+
+    <section class="portfolio">
+      <div>
+        <h1 class="reveal-title" id="title">Nuestro Trabajo</h1>
+        
+      </div>
+
+      <div class="portfolio-viewport">
+        <div class="portfolio-track">
+          <div class="portfolio-card"><img src="assets/img/TGTWeb.png" /></div>
+          <div class="portfolio-card"><img src="assets/img/THWeb.png" /></div>
+          <div class="portfolio-card"><img src="assets/img/VPWeb.png" /></div>
+          <div class="portfolio-card"><img src="assets/img/THWeb.png" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="scripts/gspa.js"></script>
+    <script src="scripts/portfolio.js"></script>
+    <script src="scripts/appear.js"></script>
+
+    <footer>&copy; 2025 BFTech</footer>
+  </body>
+</html>

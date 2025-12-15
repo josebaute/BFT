@@ -1,0 +1,489 @@
+@font-face {
+  font-family: "GothamMedium";
+  src: url("../assets/fonts/GothamMedium.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GothamBold";
+  src: url("../assets/fonts/GothamBold.otf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GothamBook";
+  src: url("../assets/fonts/GothamBook.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(90deg, #000000, #191919);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Fondo animado */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* HEADER */
+/*
+header {
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+*/
+
+header {
+  position: fixed; /* Fija el header en la pantalla */
+  top: 0; /* arriba de todo */
+  left: 0;
+  width: 80%; /* ocupa todo el ancho */
+  z-index: 1000; /* sobre todos los demás elementos */
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.95),
+    rgba(25, 25, 25, 0.85)
+  );
+  /*background-color: rgba(25, 25, 25, 0.96);/* importante para que no se vea transparente */
+  /*box-shadow: 0 2px 10px rgb(255, 214, 66, 0.5); /* opcional: sombra */
+}
+
+.logo img {
+  height: auto;
+  width: 150px;
+}
+
+.navbar {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #ffd642;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* MEDIA QUERY para móvil */
+@media screen and (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    top: 70px;
+    right: 0;
+
+    background: rgba(255, 214, 66, 0.95);
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    gap: 20px;
+    display: none; /* oculto por defecto */
+  }
+
+  .hamburger {
+    display: flex;
+    /* visible en móvil */
+  }
+}
+
+.navbar.active {
+  display: flex;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: "GothamBold", sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffc419, #d3a707);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-family: "GothamBook", sans-serif;
+  font-size: 2.2rem;
+  margin-top: 15px;
+}
+/*
+.floating-img {
+    display: block;
+    width: 200px; /* ajusta al tamaño que quieras 
+    margin: 0 auto;
+    /* si quieres suavidad extra en transform 
+    transform-origin: center;
+}
+
+<div>
+          <img
+            src="assets/img/BFT-logo.png"
+            alt="Hero Image"
+            class="floating-img"
+          />
+        </div>*/
+
+.gridHero {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.gridHero img {
+  width: 400px;
+  height: 400px;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 100px; /* espacio desde el final del hero */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  border: 2px solid #ffd642;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-down span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: #ffd642;
+  border-radius: 50%;
+  margin-top: 5px;
+  animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(15px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Botón */
+.btn {
+  margin-top: 30px;
+  padding: 14px 30px;
+  background: transparent;
+  border: 2px solid rgb(255, 214, 66);
+  color: #ffd642;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ffd642;
+  color: #0a0a0a;
+  transform: scale(1.05);
+}
+
+/* Servicios */
+
+.quehacemos {
+  font-family: "GothamBold", sans-serif;
+  text-align: center;
+}
+
+.services {
+  padding: 100px 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+/*
+@media (max-width: 1440px) {
+    .services {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
+    }
+}*/
+
+.service-card {
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 214, 66, 0.2);
+}
+
+.service-card h3 {
+  font-family: "GothamBook", sans-serif;
+  margin-top: 0;
+  color: #ffd642;
+}
+
+.reveal-title {
+  font-family: "GothamBold", sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.reveal-title span {
+  transform: translateY(10px);
+}
+
+/* HOW WE DO IT */
+
+.how-we-work {
+  font-family: "GothamBold", sans-serif;
+  padding: 100px 10%;
+  position: relative;
+  color: white;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin: 40px 0;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffd642, #b49b3f);
+  border-radius: 4px;
+  transition: width 0.25s ease-out;
+}
+
+.stages {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 770px) {
+  .stages {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+
+.stage {
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s, color 0.3s; /* suaviza el cambio de tamaño y color */
+}
+
+.stage.active {
+  color: #ffd642;
+  transform: scale(1.2); /* aumenta tamaño al activarse */
+}
+
+/* Portfolio */
+
+.portfolio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  padding: 80px 0;
+}
+
+@media (max-width: 1200px) {
+  .portfolio {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.portfolio-viewport {
+  width: 550px; /* visible solo UNA tarjeta */
+  overflow: hidden;
+}
+
+.portfolio-track {
+  display: flex;
+  gap: 20px;
+}
+
+.portfolio-card {
+  width: 550px;
+  height: 600px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
+    .portfolio-viewport {
+        width: 320px; /* ajusta al tamaño de móvil */
+    }
+
+  .portfolio-card {
+    width: 300px;
+    height: 325px; /* asegura que la tarjeta sea cuadrada */
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Flechas */
+.arrow {
+  background: none;
+  border: 1px solid #ffd642;
+  color: #ffd642;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  background: #ffd642;
+  color: #000;
+}
+
+/*
+.portfolio {
+    font-family: 'GothamBold', sans-serif;
+    padding: 100px 10%;
+    text-align: center;
+    color: white;
+}
+
+.portfolio h2 {
+    font-family: 'GothamMedium', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.portfolio-card {
+    background: rgba(63, 62, 62, 0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+.portfolio-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: rgb(204, 204, 204, 0.1) solid 2px;
+}
+
+.portfolio-card h3 {
+    font-family: 'GothamBook', sans-serif;
+    margin-top: 0;
+    font-size: 2rem;
+    color: #00E8FF;
+}
+
+.portfolio-card p {
+    font-family: 'GothamBook', sans-serif;
+    font-size: 1rem;
+    color: #CCCCCC;
+}
+*/
+
+/* FOOTER */
+
+footer {
+  color: white;
+  background-color: #0a0a0a;
+  text-align: center;
+  align-items: center;
+  padding: 2rem;
+}
