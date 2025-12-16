@@ -221,6 +221,47 @@ header {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .scroll-down {
+    border: none;
+    width: auto;
+    height: auto;
+    bottom: 50px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .scroll-down span {
+    display: none; /* ocultamos el punto animado */
+  }
+
+  .scroll-down::before {
+    content: "<";
+    display: block;
+    color: #ffd642;
+    font-size: 2.2rem;
+    transform-origin: center;
+    line-height: 1;
+    animation: scroll-mobile 1.5s infinite;
+  }
+
+  @keyframes scroll-mobile {
+    0% {
+      transform: translateY(0) rotate(-90deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(15px) rotate(-90deg);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0) rotate(-90deg);
+      opacity: 1;
+    }
+  }
+}
 /* Botón */
 .btn {
   margin-top: 30px;
@@ -388,9 +429,9 @@ header {
 }
 
 @media (max-width: 720px) {
-    .portfolio-viewport {
-        width: 320px; /* ajusta al tamaño de móvil */
-    }
+  .portfolio-viewport {
+    width: 320px; /* ajusta al tamaño de móvil */
+  }
 
   .portfolio-card {
     width: 300px;
@@ -479,6 +520,8 @@ header {
 */
 
 /* FOOTER */
+
+/* MOBILE: reemplaza el indicador 'scroll-down' por un "<" apuntando hacia abajo */
 
 footer {
   color: white;
