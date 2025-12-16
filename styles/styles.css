@@ -72,6 +72,7 @@ header {
   width: 100%; /* ocupa todo el ancho */
   z-index: 1000; /* sobre todos los demás elementos */
   padding: 0px 10%;
+  padding-top: env(safe-area-inset-top);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -247,7 +248,7 @@ header {
 
 /* HERO */
 .hero {
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
