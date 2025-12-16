@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- 1️⃣ Meta básica -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 2️⃣ Título de la página -->
+    <title>BFTech | Servicios</title>
+
+    <!-- 3️⃣ Meta descripción (SEO) -->
+    <meta
+      name="description"
+      content="Servicios BFTech: Desarrollo web, software a medida, apps móviles y consultoría tecnológica."
+    />
+
+    <!-- 4️⃣ Meta keywords (opcional, casi no se usa hoy en SEO) -->
+    <meta
+      name="keywords"
+      content="BFTech, servicios, desarrollo web, software a medida, apps móviles, consultoría, España"
+    />
+
+    <!-- 5️⃣ Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/faviconBFT.jpg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/faviconBFT.jpg" />
+    <link rel="shortcut icon" href="/assets/img/faviconBFT.jpg" />
+    <!-- Para Apple touch -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/faviconBFT.jpg" />
+
+    <!-- 6️⃣ Open Graph / Redes sociales -->
+    <meta property="og:title" content="BFTech | Servicios" />
+    <meta property="og:description" content="Servicios BFTech: Desarrollo web, software a medida, apps móviles y consultoría tecnológica." />
+    <meta property="og:image" content="og-image.png" />
+    <meta property="og:url" content="https://tusitio.com/servicios.html" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/img/BFT-logo.svg" alt="BFTech Logo" />
+        </a>
+      </div>
+      <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- GSAP (debe estar antes de hamburger.js) -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      <script src="scripts/hamburger.js"></script>
+    </header>
+
+    <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
+    <div class="menu-overlay">
+      <nav class="menu-overlay-nav">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <footer class="menu-overlay-nav-footer">
+        <a href="https://www.linkedin.com/company/bftech">LinkedIn</a>
+        <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+      </footer>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero services-hero">
+      <div class="gridHero">
+        <div>
+          <h1 id="title">Nuestros Servicios</h1>
+          <p id="subtitle">
+            Soluciones tecnológicas completas diseñadas para impulsar tu negocio al siguiente nivel.
+          </p>
+        </div>
+      </div>
+      <div class="scroll-down" id="title">
+        <span></span>
+      </div>
+    </section>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="services-section">
+      <div class="services-container">
+        <!-- Service 1: Web Development -->
+        <div class="service-detailed">
+          <div class="service-image">
+            <img src="/assets/img/desarrollo-web.webp" alt="Desarrollo Web" />
+          </div>
+          <div class="service-info">
+            <h2 class="reveal-title">Desarrollo Web</h2>
+            <p>Creamos sitios web modernos, rápidos y optimizados para SEO que conviertan visitantes en clientes. Desde landing pages hasta plataformas complejas, utilizamos las últimas tecnologías.</p>
+            <ul class="service-features">
+              <li>Responsive design</li>
+              <li>Optimización SEO</li>
+              <li>Performance máximo</li>
+              <li>CMS integrables</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2: Custom Software -->
+        <div class="service-detailed alternate">
+          <div class="service-image">
+            <img src="/assets/img/software.png" alt="Software a Medida" />
+          </div>
+          <div class="service-info">
+            <h2 class="reveal-title">Software a Medida</h2>
+            <p>Desarrollamos aplicaciones personalizadas que se adapten exactamente a tus necesidades. Desde ERP hasta sistemas de gestión, nos enfocamos en soluciones escalables y mantenibles.</p>
+            <ul class="service-features">
+              <li>Arquitectura escalable</li>
+              <li>Integración con sistemas</li>
+              <li>Documentación completa</li>
+              <li>Soporte técnico continuo</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: Mobile Apps -->
+        <div class="service-detailed">
+          <div class="service-image">
+            <img src="/assets/img/apps.webp" alt="Apps Móviles" />
+          </div>
+          <div class="service-info">
+            <h2 class="reveal-title">Apps Móviles</h2>
+            <p>Aplicaciones nativas e híbridas para iOS y Android. Diseñamos experiencias intuitivas y funcionales que mantienen a tus usuarios enganchados.</p>
+            <ul class="service-features">
+              <li>Apps nativas (Swift, Kotlin)</li>
+              <li>Apps híbridas (React Native)</li>
+              <li>Push notifications</li>
+              <li>Sincronización en tiempo real</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4: Tech Consulting -->
+        <div class="service-detailed alternate">
+          <div class="service-image">
+            <img src="/assets/img/consultoria.webp" alt="Consultoría Tecnológica" />
+          </div>
+          <div class="service-info">
+            <h2 class="reveal-title">Consultoría Tecnológica</h2>
+            <p>Te ayudamos a tomar decisiones tecnológicas estratégicas. Evaluamos tu stack actual, identificamos oportunidades de mejora y planificamos tu transformación digital.</p>
+            <ul class="service-features">
+              <li>Auditoría tecnológica</li>
+              <li>Planificación estratégica</li>
+              <li>Selección de herramientas</li>
+              <li>Capacitación de equipos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="services-process">
+      <h2 class="reveal-title">Nuestro Proceso</h2>
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3>Descubrimiento</h3>
+          <p>Entendemos tus objetivos, desafíos y usuarios.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Planificación</h3>
+          <p>Definimos estrategia, arquitectura y timeline.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Desarrollo</h3>
+          <p>Construimos con ágil, sprints y validación continua.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3>Testing</h3>
+          <p>QA riguroso, seguridad y optimización.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">05</div>
+          <h3>Lanzamiento</h3>
+          <p>Deployment, monitoreo y soporte post-launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="services-tech">
+      <h2 class="reveal-title">Tecnologías que Usamos</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <h3>Frontend</h3>
+          <p>React, Vue.js, TypeScript, Next.js, Tailwind CSS</p>
+        </div>
+        <div class="tech-item">
+          <h3>Backend</h3>
+          <p>Node.js, Python, PostgreSQL, MongoDB, Docker</p>
+        </div>
+        <div class="tech-item">
+          <h3>Mobile</h3>
+          <p>React Native, Swift, Kotlin, Firebase</p>
+        </div>
+        <div class="tech-item">
+          <h3>DevOps</h3>
+          <p>AWS, Google Cloud, CI/CD, Kubernetes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="services-cta">
+      <h2 class="reveal-title">¿Listo para transformar tu negocio?</h2>
+      <p>Hablemos sobre tu proyecto y cómo podemos ayudarte a lograrlo.</p>
+      <a href="contacto.html" class="btn">Contáctanos Hoy</a>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="scripts/gspa.js"></script>
+    <script src="scripts/services.js"></script>
+
+    <footer>
+      <div>
+        <div class="logo">
+          <a href="#">
+            <img src="assets/img/BFT-logo.svg" alt="BFTech Logo" />
+          </a>
+        </div>
+      </div>
+      &copy; 2025 BFTech
+    </footer>
+  </body>
+</html>

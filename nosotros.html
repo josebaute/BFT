@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- 1️⃣ Meta básica -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 2️⃣ Título de la página -->
+    <title>BFTech | Sobre Nosotros</title>
+
+    <!-- 3️⃣ Meta descripción (SEO) -->
+    <meta
+      name="description"
+      content="BFTech: Conoce nuestro equipo, misión y valores como consultora de producto digital."
+    />
+
+    <!-- 4️⃣ Meta keywords (opcional, casi no se usa hoy en SEO) -->
+    <meta
+      name="keywords"
+      content="BFTech, sobre nosotros, equipo, consultora tech, desarrollo web, software a medida, apps, MVP, España"
+    />
+
+    <!-- 5️⃣ Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/faviconBFT.jpg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/faviconBFT.jpg" />
+    <link rel="shortcut icon" href="/assets/img/faviconBFT.jpg" />
+    <!-- Para Apple touch -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/faviconBFT.jpg" />
+
+    <!-- 6️⃣ Open Graph / Redes sociales -->
+    <meta property="og:title" content="BFTech | Sobre Nosotros" />
+    <meta property="og:description" content="BFTech: Conoce nuestro equipo, misión y valores como consultora de producto digital." />
+    <meta property="og:image" content="og-image.png" />
+    <meta property="og:url" content="https://tusitio.com/nosotros.html" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/img/BFT-logo.svg" alt="BFTech Logo" />
+        </a>
+      </div>
+      <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- GSAP (debe estar antes de hamburger.js) -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+      <script src="scripts/hamburger.js"></script>
+    </header>
+
+    <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
+    <div class="menu-overlay">
+      <nav class="menu-overlay-nav">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <footer class="menu-overlay-nav-footer">
+        <a href="https://www.linkedin.com/company/bftech">LinkedIn</a>
+        <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+      </footer>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero about-hero">
+      <div class="gridHero">
+        <div>
+          <h1 id="title">Quiénes Somos</h1>
+          <p id="subtitle">
+            Una consultora de producto digital enfocada en transformar ideas en soluciones tecnológicas innovadoras.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+      <div class="about-wrapper">
+        <!-- Left Image -->
+        <div class="about-image">
+          <img src="assets/img/Grupo1.jpg" alt="Equipo BFTech trabajando" />
+        </div>
+
+        <!-- Right Text -->
+        <div class="about-text">
+          <h2 class="reveal-title">Nuestra Misión</h2>
+          <p>
+            En BFTech creemos que la tecnología debe ser accesible y transformadora. Nuestro objetivo es ayudar a startups y PYMEs a construir productos digitales que realmente impacten en sus usuarios y negocios.
+          </p>
+          <p>
+            Combinamos estrategia, diseño y desarrollo de software con una mentalidad ágil y orientada al resultado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="about-values">
+      <h2 class="reveal-title">Nuestros Valores</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Innovación</h3>
+          <p>Buscamos constantemente nuevas formas de resolver problemas con tecnología de vanguardia.</p>
+        </div>
+        <div class="value-card">
+          <h3>Transparencia</h3>
+          <p>Comunicación clara y honesta en cada etapa del proyecto con nuestros clientes.</p>
+        </div>
+        <div class="value-card">
+          <h3>Excelencia</h3>
+          <p>Nos comprometemos con la calidad en cada línea de código y cada decisión de diseño.</p>
+        </div>
+        <div class="value-card">
+          <h3>Colaboración</h3>
+          <p>Trabajamos como equipo con nuestros clientes para lograr objetivos compartidos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="about-team">
+      <h2 class="reveal-title">Nuestro Equipo</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="assets/img/Grupo2.jpg" alt="Miembro del equipo" />
+          </div>
+          <h3></h3>
+          <p class="member-role"></p>
+        </div>
+
+
+        
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+      <h2 class="reveal-title">¿Listo para trabajar juntos?</h2>
+      <p>Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.</p>
+      <a href="contacto.html" class="btn">Contáctanos</a>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="scripts/gspa.js"></script>
+    <script src="scripts/about.js"></script>
+
+    <footer>
+      <div>
+        <div class="logo">
+          <a href="#">
+            <img src="assets/img/BFT-logo.svg" alt="BFTech Logo" />
+          </a>
+        </div>
+      </div>
+      &copy; 2025 BFTech
+    </footer>
+  </body>
+</html>
