@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- 1️⃣ Meta básica -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 2️⃣ Título de la página -->
+    <title>BFTech | Contacto</title>
+
+    <!-- 3️⃣ Meta descripción (SEO) -->
+    <meta
+      name="description"
+      content="Contacta con BFTech: Tu consultora de producto digital para desarrollo web y apps a medida en España."
+    />
+
+    <!-- 4️⃣ Meta keywords (opcional, casi no se usa hoy en SEO) -->
+    <meta
+      name="keywords"
+      content="BFTech, contacto, consultora tech, desarrollo web, software a medida, apps, MVP, España, Canarias, Tenerife"
+    />
+
+    <!-- 5️⃣ Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/img/faviconBFT.jpg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/img/faviconBFT.jpg"
+    />
+    <link rel="shortcut icon" href="/assets/img/faviconBFT.jpg" />
+    <!-- Para Apple touch -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/img/faviconBFT.jpg"
+    />
+
+    <!-- 6️⃣ Open Graph / Redes sociales -->
+    <meta property="og:title" content="BFTech | Contacto" />
+    <meta
+      property="og:description"
+      content="Contacta con BFTech: Tu consultora de producto digital para desarrollo web y apps a medida en España."
+    />
+    <meta property="og:image" content="og-image.png" />
+    <meta property="og:url" content="https://tusitio.com/contacto.html" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+      <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/img/BFT-logo.svg" alt="BFTech Logo" />
+      </a>
+    </div>
+    <nav class="navbar">
+      <a href="#services">Servicios</a>
+      <a href="#about">Sobre Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <script src="scripts/hamburger.js"></script>
+  </header>
+
+    <section class="contact-hero">
+      <div class="contact-wrapper">
+        <div class="contact-card">
+          <h1 class="reveal-title" id="title">Hablemos de tu proyecto</h1>
+          <p id="subtitle">Cuéntanos tus objetivos y te proponemos la mejor solución tecnológica.</p>
+
+          <form id="contact-form">
+            <div class="form-row">
+              <input name="name" placeholder="Nombre completo" required />
+              <input name="company" placeholder="Empresa (opcional)" />
+            </div>
+
+            <input type="email" name="email" placeholder="Email" required />
+            <input name="phone" placeholder="Teléfono (opcional)" />
+            <textarea name="message" rows="6" placeholder="Cuéntanos la idea o problema a resolver..." required></textarea>
+
+            
+
+              <button type="submit" class="btn">Enviar mensaje</button>
+            </div>
+
+            <div id="form-status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="scripts/gspa.js"></script>
+    <script src="scripts/contact.js"></script>
+
+    <footer>
+      <div>
+        <div class="logo">
+          <a href="#">
+            <img src="assets/img/BFT-logo.svg" alt="BFTech Logo" />
+          </a>
+        </div>
+      </div>
+      &copy; 2025 BFTech</footer>
+  </body>
+</html>
