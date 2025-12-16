@@ -547,7 +547,7 @@ header {
 
 @media (max-width: 720px) {
   .portfolio-viewport {
-    width: 320px; /* ajusta al tamaño de móvil */
+    width: 295px; /* ajusta al tamaño de móvil */
   }
 
   .portfolio-card {
