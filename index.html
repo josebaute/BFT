@@ -65,12 +65,27 @@
       <span></span>
       <span></span>
     </div>
+    <!-- GSAP (debe estar antes de hamburger.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="scripts/hamburger.js"></script>
   </header>
 
   <body>
     <!-- Fondo de partículas -->
     <!--<canvas id="particles"></canvas>-->
+
+    <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
+    <div class="menu-overlay">
+      <nav class="menu-overlay-nav">
+        <a href="#services">Servicios</a>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <footer class="menu-overlay-nav-footer">
+        <a href="https://www.linkedin.com/company/bftech">LinkedIn</a>
+        <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+      </footer>
+    </div>
 
     <!-- HERO -->
 
