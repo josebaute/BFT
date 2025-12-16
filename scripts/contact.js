@@ -1,37 +1,95 @@
-// Animaciones y manejo del formulario en la página de contacto
+// Contact page animations
 document.addEventListener('DOMContentLoaded', () => {
-  if (typeof gsap !== 'undefined') {
-    gsap.from('#title', { duration: 0.9, y: 30, opacity: 0, ease: 'power3.out' });
-    gsap.from('#subtitle', { duration: 1, y: 20, opacity: 0, delay: 0.15, ease: 'power3.out' });
+  if (typeof gsap === 'undefined') {
+    console.error('GSAP library not loaded');
+    return;
+  }
 
-    gsap.from('.contact-image', { duration: 1, x: -30, opacity: 0, delay: 0.2, ease: 'power2.out' });
-    gsap.from('.contact-card', { duration: 1, x: 30, opacity: 0, delay: 0.25, ease: 'power2.out' });
+  // Hero animations
+  gsap.to('#title', { 
+    duration: 0.9, 
+    y: 0,
+    opacity: 1, 
+    ease: 'power3.out',
+    from: { y: 30, opacity: 0 }
+  });
 
-    // Animación de los campos del formulario
-    gsap.utils.toArray('#contact-form input, #contact-form textarea, #contact-form .btn').forEach((el, i) => {
-      gsap.from(el, { duration: 0.6, y: 12, opacity: 0, delay: 0.35 + i * 0.06, ease: 'power2.out' });
+  gsap.to('#subtitle', { 
+    duration: 1, 
+    y: 0,
+    opacity: 1, 
+    delay: 0.15, 
+    ease: 'power3.out',
+    from: { y: 20, opacity: 0 }
+  });
+
+  // Animación de tarjetas de contacto con stagger
+  const contactCards = gsap.utils.toArray('.contact-card');
+  if (contactCards.length > 0) {
+    contactCards.forEach((card, i) => {
+      gsap.to(card, {
+        duration: 0.7,
+        y: 0,
+        opacity: 1,
+        stagger: 0.12,
+        delay: 0.35 + (i * 0.12),
+        ease: 'power2.out',
+        from: { y: 30, opacity: 0 }
+      });
     });
   }
 
-  // Manejo de envío (simulado) con feedback y animación
-  const form = document.getElementById('contact-form');
-  const status = document.getElementById('form-status');
+  // Animación sección social
+  gsap.to('.contact-social', { 
+    duration: 0.8, 
+    y: 0,
+    opacity: 1, 
+    delay: 0.8, 
+    ease: 'power2.out',
+    from: { y: 30, opacity: 0 }
+  });
 
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      status.style.display = 'block';
-      status.textContent = 'Enviando...';
-
-      // pequeña animación de confirmación
-      gsap.to(status, { opacity: 1, duration: 0.3 });
-
-      // Simulamos envío (aquí podrías llamar a tu API)
-      setTimeout(() => {
-        status.textContent = '¡Gracias! Tu mensaje ha sido recibido.';
-        gsap.fromTo(status, { scale: 0.95 }, { scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.6)' });
-        form.reset();
-      }, 900);
+  // Hover effects en botones sociales
+  gsap.utils.toArray('.social-link').forEach((link) => {
+    link.addEventListener('mouseenter', () => {
+      gsap.to(link, { 
+        scale: 1.08, 
+        duration: 0.3, 
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
     });
-  }
+    
+    link.addEventListener('mouseleave', () => {
+      gsap.to(link, { 
+        scale: 1, 
+        duration: 0.3, 
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
+  });
+
+  // Hover effects en tarjetas
+  gsap.utils.toArray('.contact-card').forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        y: -12,
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
+  });
+
+  console.log('Contact page animations loaded');
 });
