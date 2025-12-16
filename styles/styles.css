@@ -57,10 +57,10 @@ header {
   position: fixed; /* Fija el header en la pantalla */
   top: 0; /* arriba de todo */
   left: 0;
-  width: 100%; /* ocupa todo el ancho */
+  width: 80%; /* ocupa todo el ancho */
   z-index: 1000; /* sobre todos los demás elementos */
-  padding: 0px 10%;
-  padding-left: 10px;
+  padding: 20px 10%;
+  
   display: flex;
   justify-content: space-between;
   
@@ -70,7 +70,7 @@ header {
     rgba(0, 0, 0, 0.95),
     rgba(25, 25, 25, 0.85)
   );
-  box-sizing: border-box;
+  /*box-sizing: border-box;
   /*background-color: rgba(25, 25, 25, 0.96);/* importante para que no se vea transparente */
   /*box-shadow: 0 2px 10px rgb(255, 214, 66, 0.5); /* opcional: sombra */
 }
