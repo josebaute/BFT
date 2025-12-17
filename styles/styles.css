@@ -124,7 +124,7 @@ header {
 .menu-overlay {
   display: none;
   position: fixed;
-  margin-top: 20px;
+  margin-top: 80px;
   top: 0;
   left: 0;
   width: 100%;
