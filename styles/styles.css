@@ -823,10 +823,20 @@ header {
 
 .contact-us {
   font-family: "GothamBold", sans-serif;
+  display: flex;
+  flex-direction: column;
   padding: 100px 10%;
+  gap: 40px;
   text-align: center;
-  color: white;
+  color: #ffd642;
   
+}
+
+@media (min-width: 1000px) {
+  .contact-us p{
+    font-size: 3.0rem;
+    color: #ffd642 ;
+  }
 }
 
 .contact-but{
