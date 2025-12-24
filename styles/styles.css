@@ -94,7 +94,8 @@ header.scrolled {
 
 .logo img {
   height: auto;
-  width: 150px;
+  width: 100px;
+  margin: 20px 0;
 }
 
 .navbar {
