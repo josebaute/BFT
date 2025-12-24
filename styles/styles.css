@@ -37,7 +37,7 @@ body {
   margin: 0;
   padding: 0 env(safe-area-inset-left) 0 env(safe-area-inset-right);
   font-family: "Inter", sans-serif;
-  background: linear-gradient(90deg, #000000, #191919);
+  background: #000000;
   color: white;
   overflow-x: hidden;
   width: 100%;
@@ -260,6 +260,7 @@ header.scrolled {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+  background: linear-gradient(90deg, #000000, #191919);
 }
 
 .hero h1 {
