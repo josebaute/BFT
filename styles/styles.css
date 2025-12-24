@@ -76,6 +76,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #000000;
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0.95),
