@@ -260,7 +260,7 @@ header.scrolled {
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  background: linear-gradient(90deg, #000000, #191919);
+  /*background: linear-gradient(90deg, #000000, #191919);*/
 }
 
 .hero h1 {
