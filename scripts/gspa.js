@@ -79,3 +79,18 @@ window.addEventListener('scroll', function() {
     }
 });
         
+gsap.registerPlugin(ScrollTrigger);
+
+
+gsap.from("#slide-right", {
+  x: 100,
+  opacity: 0,
+  duration: 1,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: "#slide-right",
+    start: "top 80%",
+    end: "top 20%",
+    toggleActions: "play none none reverse"
+  }
+});
