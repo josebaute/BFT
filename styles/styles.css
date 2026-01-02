@@ -303,7 +303,6 @@ header.scrolled {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-bottom: 30px;
   justify-content: center;
   align-items: center;
   gap: 220px;
@@ -316,7 +315,7 @@ header.scrolled {
 
 .scroll-down {
   position: absolute;
-  bottom: 100px; /* espacio desde el final del hero */
+  bottom: 10px; /* espacio desde el final del hero */
   left: 50%;
   transform: translateX(-50%);
   width: 30px;
