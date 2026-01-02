@@ -314,7 +314,7 @@ header.scrolled {
 }
 
 .scroll-down {
-  position: absolute;
+  position: static;
   bottom: 10px; /* espacio desde el final del hero */
   left: 50%;
   transform: translateX(-50%);
