@@ -303,6 +303,7 @@ header.scrolled {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-bottom: 30px;
   justify-content: center;
   align-items: center;
   gap: 220px;
