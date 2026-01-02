@@ -314,8 +314,8 @@ header.scrolled {
 }
 
 .scroll-down {
-  position: static;
-  bottom: 10px; /* espacio desde el final del hero */
+  position: absolute;
+  bottom: 50px; /* espacio desde el final del hero */
   left: 50%;
   transform: translateX(-50%);
   width: 30px;
