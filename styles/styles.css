@@ -448,8 +448,23 @@ header.scrolled {
 .services {
   padding: 100px 10%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: 40px;
+}
+
+/* De 600px en adelante: 2 columnas */
+@media (min-width: 600px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* De 1200px en adelante: 4 columnas */
+/* Saltamos el 3 directamente */
+@media (min-width: 1200px) {
+  .services {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 /*
 @media (max-width: 900px) {
