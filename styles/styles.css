@@ -553,9 +553,13 @@ header.scrolled {
   font-size: 2em;
 }
 
+
+
+
 .progress-container {
   width: 100%;
   height: 8px;
+  
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   margin: 40px 0;
@@ -963,14 +967,14 @@ header.scrolled {
 
 /* MOBILE: reemplaza el indicador 'scroll-down' por un "<" apuntando hacia abajo */
 
-footer {
+.footerContainer {
   color: white;
   background-color: #0a0a0a;
   text-align: left;
   align-items: left;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  
   padding: 2rem;
   
   gap: 200px;
@@ -982,9 +986,15 @@ footer {
   gap: 12px;
 }
 
+.footer-info{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 
-@media (max-width: 768px) {
+
+@media (max-width: 1050px) {
   footer {
     flex-direction: column;
     align-items: center;
