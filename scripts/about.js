@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Hover effect on team members and value cards
-    gsap.utils.toArray('.team-member, .value-card').forEach(el => {
+    gsap.utils.toArray('.member-image, .value-card').forEach(el => {
       el.addEventListener('mouseenter', () => {
         gsap.to(el, { y: -8, duration: 0.3, ease: 'power2.out' });
       });
       el.addEventListener('mouseleave', () => {
-        gsap.to(el, { y: 0, duration: 0.3, ease: 'power2.out' });
+        gsap.to(el, { y: 0, duration: 0.5, ease: 'power2.out' });
       });
     });
 
