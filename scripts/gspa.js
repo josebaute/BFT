@@ -1,22 +1,74 @@
 // Animaciones GSAP
-        gsap.from("#title", { duration: 1.2, y: 40, opacity: 0, ease: "power3.out" });
-        gsap.from("#subtitle", { duration: 1.2, y: 20, opacity: 0, delay: 0.3, ease: "power3.out" });
-       
-        gsap.utils.toArray(".service-card").forEach((card, i) => {
-            gsap.from(card, {
-                scrollTrigger: card,
-                duration: 0.8,
-                y: 40,
-                opacity: 0,
-                delay: i * 0.1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    scrub: 1,
-                    trigger: card,
-                    start: "top 80%",
-        }
-            });
-        });
+gsap.from("#title", { duration: 1.2, y: 40, opacity: 0, ease: "power3.out" });
+gsap.from("#subtitle", {
+  duration: 1.2,
+  y: 20,
+  opacity: 0,
+  delay: 0.3,
+  ease: "power3.out",
+});
+
+gsap.utils.toArray(".service-card").forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: card,
+    duration: 0.8,
+    y: 40,
+    opacity: 0,
+    delay: i * 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+      scrub: 1,
+      trigger: card,
+      start: "top 80%",
+    },
+  });
+});
+
+// Animación para el párrafo "Listo para llevar..."
+gsap.from("#reveal-ready", {
+  scrollTrigger: {
+    trigger: "#reveal-ready",
+    start: "top 80%",
+    toggleActions: "play none none reverse",
+  },
+  duration: 0.8,
+  x: -50,
+  opacity: 0,
+  ease: "power2.out",
+});
+
+const processSteps = gsap.utils.toArray(".service-card");
+
+processSteps.forEach((step, i) => {
+  // Animación inicial de entrada
+  gsap.from(step, {
+    scrollTrigger: {
+      trigger: ".service",
+      start: "top 70%",
+      toggleActions: "play none none reverse",
+    },
+    duration: 0.6,
+    y: 30,
+    opacity: 0,
+    delay: i * 0.1,
+    ease: "power2.out",
+  });
+
+  // Efecto de relleno cascada individual (una por una, al llegar a mitad del viewport)
+  gsap.to(step, {
+    scrollTrigger: {
+      trigger: step,
+      start: "center center",
+      end: "center 40%",
+      scrub: 1,
+      markers: false,
+    },
+    duration: 0.8,
+    backgroundColor: "rgba(255, 214, 66, 0.15)",
+    borderColor: "#ffd642",
+    ease: "power2.out",
+  });
+});
 /*
         gsap.to(".floating-img", {
           y: 20, // cantidad de movimiento hacia abajo
@@ -26,9 +78,8 @@
           ease: "power1.inOut",
         });*/
 
-
-        // Partículas
-        /*
+// Partículas
+/*
         const canvas = document.getElementById("particles");
         const ctx = canvas.getContext("2d");
 
@@ -68,19 +119,18 @@
 
         animateParticles();
 */
-        
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 0) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-        
-gsap.registerPlugin(ScrollTrigger);
 
+// Header scroll effect
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  if (window.scrollY > 0) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+gsap.registerPlugin(ScrollTrigger);
 
 gsap.from("#slide-right", {
   x: 100,
@@ -91,6 +141,6 @@ gsap.from("#slide-right", {
     trigger: "#slide-right",
     start: "top 80%",
     end: "top 20%",
-    toggleActions: "play none none reverse"
-  }
+    toggleActions: "play none none reverse",
+  },
 });

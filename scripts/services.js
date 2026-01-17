@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from('#subtitle', { duration: 1, y: 20, opacity: 0, delay: 0.15, ease: 'power3.out' });
 
     // Service detailed cards animation (staggered from both sides)
-    gsap.utils.toArray('.service-detailed').forEach((card, i) => {
+    gsap.utils.toArray('.service-detailed',).forEach((card, i) => {
       const isAlternate = card.classList.contains('alternate');
       gsap.from(card, {
         scrollTrigger: {
@@ -21,8 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Process timeline animation
-    gsap.utils.toArray('.process-step').forEach((step, i) => {
+    // Process timeline animation with cascading yellow fill effect
+    const processSteps = gsap.utils.toArray('.process-step');
+    
+    processSteps.forEach((step, i) => {
+      // Animación inicial de entrada
       gsap.from(step, {
         scrollTrigger: {
           trigger: '.services-process',
@@ -33,6 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
         y: 30,
         opacity: 0,
         delay: i * 0.1,
+        ease: 'power2.out'
+      });
+
+      // Efecto de relleno cascada individual (una por una, al llegar a mitad del viewport)
+      gsap.to(step, {
+        scrollTrigger: {
+          trigger: step,
+          start: 'center center',
+          end: 'center 40%',
+          scrub: 1,
+          markers: false
+        },
+        duration: 0.8,
+        backgroundColor: 'rgba(255, 214, 66, 0.15)',
+        borderColor: '#ffd642',
         ease: 'power2.out'
       });
     });
