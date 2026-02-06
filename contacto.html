@@ -41,6 +41,7 @@
     gtag('js', new Date());
     gtag('config', 'G-EH3F5LSJBX');
   </script>
+  <script src="scripts/contact_form.js"></script>
 </head>
   </head>
   <!-- Google tag (gtag.js) -->
@@ -99,8 +100,12 @@
     </section>
     </section>
 
+    <h2 id="contactForm" class="form-title">Envíanos un mensaje</h2>
+    <p class="form-subtitle">¡Agenda tu consulta gratuita ya!</p>
+    
     <!-- SECCIÓN DE CONTACTO -->
     <section class="contact-section">
+    
       <div class="contact-container">
         <div class="contact-info-grid">
           <!-- Email -->
@@ -129,23 +134,50 @@
             <h3>Horario de atención</h3>
             <p>Lunes a Domingo: 24h</p>
           </div>
+
+          
         </div>
 
+        
         <!-- Social Media -->
-        <div class="contact-social">
-          <h3>Síguenos</h3>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/" target="_blank" rel="noopener" class="social-link">
-              LinkedIn
-            </a>
-            <a href="https://www.instagram.com/bftech.es/" target="_blank" rel="noopener" class="social-link">
-              Instagram
-            </a>
-            
-          </div>
-        </div>
+        
       </div>
+      
+      <form id="contact-form" action="https://formspree.io/f/meeljyjj" method="POST">
+        <div class="input-group">
+          <input name="name" type="text" required placeholder="Nombre completo" class="form-input" />
+          <input name="email" type="email" required placeholder="Email" class="form-input" />
+          <input name="phone" type="tel" placeholder="Teléfono" class="form-input" />
+          <textarea name="message" rows="5" required placeholder="Cuéntame sobre tus objetivos..."
+            class="form-input resize-none"></textarea>
+        </div>
+      
+        <button type="submit" id="submit-btn">
+          <span id="submit-text">Enviar Mensaje</span>
+          <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+        </button>
+      
+        <div id="success-message" class="hidden">
+          ¡Gracias por tu mensaje! Te contactaré pronto.
+        </div>
+      </form>
     </section>
+
+    <div class="contact-social">
+      <h3>Síguenos</h3>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/" target="_blank" rel="noopener"
+          class="social-link">
+          LinkedIn
+        </a>
+        <a href="https://www.instagram.com/bftech.es/" target="_blank" rel="noopener" class="social-link">
+          Instagram
+        </a>
+    
+      </div>
+    </div>
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
