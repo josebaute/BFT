@@ -39,15 +39,7 @@
     <link rel="stylesheet" href="/styles/styles.css" />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3F5LSJBX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-EH3F5LSJBX");
-    </script>
+    <script src="/scripts/cookies.js"></script>
     <script src="scripts/contact_form.js"></script>
   </head>
 </head>
@@ -365,8 +357,13 @@
             <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
           </a>
           <p>Building Future Technologies</p>
-          <br />
-          &copy; 2026 BFTech
+          <br>
+          <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/bftech.es/" target="_blank" rel="noopener">
+            Instagram
+          </a>
         </div>
       </div>
       <div class="footer-links">
@@ -384,6 +381,7 @@
         </a>
         <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
         <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
+        <a class="link-display" href="/portfolio.html">Proyectos</a>
       </div>
       <div class="footer-links">
         <a href="/contacto.html">
@@ -395,11 +393,35 @@
       </div>
       <div class="footer-links">
         <a href="/portfolio.html">
-          <p>Proyectos</p>
+          <p>Legal</p>
         </a>
+        <a class="link-display" href="/politica-privacidad.html">Política de Privacidad</a>
+        <a class="link-display" href="/terminos-servicio.html">Términos de Servicio</a>
+        <a class="link-display" href="/aviso-legal.html">Aviso Legal</a>
+        <a class="link-display" href="/politica-cookies.html">Política de Cookies</a>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 BFTech. Todos los derechos reservados.</p>
+    </div>
+
   </footer>
+  <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>Usamos cookies</strong> para mejorar tu experiencia y analizar el tráfico. Al continuar
+                    navegando aceptas nuestra <a href="/politica-privacidad.html" target="_blank">Política de
+                        Privacidad</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="cookie-reject" class="cookie-btn cookie-reject">Rechazar</button>
+                <button id="cookie-accept" class="cookie-btn cookie-accept">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/cookies.js"></script>
 </body>
 
 </html>
