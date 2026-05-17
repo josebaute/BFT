@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+    <head>
+        <!-- Meta básica -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="theme-color" content="#000000" />
+
+        <!-- SEO -->
+        <title>
+            Nuestro Portfolio | BFTech - Proyectos de Desarrollo Digital
+        </title>
+        <meta name="description"
+            content="Explora nuestro portfolio completo de proyectos: plataformas SaaS, desarrollo web, apps móviles y sistemas a medida." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://bftech.es/portfolio.html" />
+
+        <!-- Favicon -->
+        <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="/styles/styles.css" />
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3F5LSJBX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-EH3F5LSJBX");
+        </script>
+    </head>
+</head>
+
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="assets/img/logoBFT.svg" alt="BFTech Logo" />
+        </a>
+    </div>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- GSAP (debe estar antes de hamburger.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="scripts/hamburger.js"></script>
+</header>
+
+<body>
+    <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
+    <div class="menu-overlay">
+        <nav class="menu-overlay-nav">
+            <a href="/">Home</a>
+            <a href="/servicios.html">Servicios</a>
+            <a href="/nosotros.html">Sobre Nosotros</a>
+            <a href="/portfolio.html">Proyectos</a>
+            <a href="/contacto.html">Contacto</a>
+        </nav>
+        <footer class="menu-overlay-nav-footer">
+            <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
+            <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+        </footer>
+    </div>
+
+    <!-- Portfolio Header -->
+    <section class="portfolio-page-hero">
+        <div class="portfolio-hero-content">
+            <h1>Nuestros Proyectos</h1>
+            <p>La tecnología solo es el medio, el impacto real está en lo que construimos con ella. Descubre nuestra
+                galería de proyectos.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section class="portfolio-page-section">
+        <!-- Brands Carousel -->
+        <div class="brands-carousel-wrapper">
+            <div class="brands-carousel">
+                <div class="brands-track" id="brandsTrack">
+                    <div class="brand-item">
+                        <img src="/assets/img/logoRecotenxCabildo.png" alt="RecoTen - Cabildo de Tenerife" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/logoVP.png" alt="Vibra Producciones" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/logoGDFit.png" alt="GDFit" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/LogoCab.png" alt="Cabildo Tenerife" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/logoTGT.PNG" alt="TourGT" />
+                    </div>
+                    <!-- Duplicados para efecto infinito -->
+                    <div class="brand-item">
+                        <img src="/assets/img/logoRecotenxCabildo.png" alt="RecoTen - Cabildo de Tenerife" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/logoVP.png" alt="Vibra Producciones" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/logoGDFit.png" alt="GDFit" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/LogoCab.png" alt="Cabildo Tenerife" />
+                    </div>
+                    <div class="brand-item">
+                        <img src="/assets/img/logoTGT.PNG" alt="TourGT" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-filters">
+            <button class="portfolio-filter-btn active" data-filter="all">Todos</button>
+            <button class="portfolio-filter-btn" data-filter="web">Desarrollo Web</button>
+            <button class="portfolio-filter-btn" data-filter="saas">SaaS</button>
+            <button class="portfolio-filter-btn" data-filter="mobile">Apps Móviles</button>
+            <button class="portfolio-filter-btn" data-filter="backend">Backend</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+
+            <!-- Project 1 -->
+            <div class="portfolio-project-card" data-category="web,saas">
+                <div class="portfolio-project-image">
+                    <img src="/assets/img/RecoTenWeb.webp" alt="RecoTen" />
+                    <div class="portfolio-project-overlay">
+                        <a href="/en-construccion.html" class="portfolio-view-btn">Ver detalles →</a>
+                    </div>
+                </div>
+                <div class="portfolio-project-info">
+                    <div class="portfolio-project-tags">
+                        <span class="portfolio-tag">Desarrollo Web</span>
+                        <span class="portfolio-tag">SaaS</span>
+                    </div>
+                    <h3>RecoTen</h3>
+                    <p>Plataforma SaaS de análisis de datos en tiempo real con dashboards interactivos y reportes
+                        automatizados.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-project-card" data-category="backend,saas">
+                <div class="portfolio-project-image">
+                    <img src="/assets/img/VPCase.webp" alt="Vibra Producciones" />
+                    <div class="portfolio-project-overlay">
+                        <a href="/en-construccion.html" class="portfolio-view-btn">Ver detalles →</a>
+                    </div>
+                </div>
+                <div class="portfolio-project-info">
+                    <div class="portfolio-project-tags">
+                        <span class="portfolio-tag">Backend</span>
+                        <span class="portfolio-tag">SaaS</span>
+                    </div>
+                    <h3>Vibra Producciones</h3>
+                    <p>Sistema de gestión empresarial con integraciones API complejas, autenticación avanzada y lógica
+                        de negocio escalable.</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-project-card" data-category="mobile,web">
+                <div class="portfolio-project-image">
+                    <img src="/assets/img/GDFitCase.webp" alt="GDFit" />
+                    <div class="portfolio-project-overlay">
+                        <a href="/en-construccion.html" class="portfolio-view-btn">Ver detalles →</a>
+                    </div>
+                </div>
+                <div class="portfolio-project-info">
+                    <div class="portfolio-project-tags">
+                        <span class="portfolio-tag">Apps Móviles</span>
+                        <span class="portfolio-tag">Desarrollo Web</span>
+                    </div>
+                    <h3>GDFit</h3>
+                    <p>App móvil con sincronización offline, mapas en tiempo real y notificaciones push. También versión
+                        web responsiva.</p>
+                </div>
+            </div>
+
+            <!-- Project 4 (Extra Example) -->
+            <div class="portfolio-project-card" data-category="web">
+                <div class="portfolio-project-image">
+                    <img src="/assets/img/TGTCase.webp" alt="TourGT" />
+                    <div class="portfolio-project-overlay">
+                        <a href="/en-construccion.html" class="portfolio-view-btn">Ver detalles →</a>
+                    </div>
+                </div>
+                <div class="portfolio-project-info">
+                    <div class="portfolio-project-tags">
+                        <span class="portfolio-tag">Desarrollo Web</span>
+                    </div>
+                    <h3>TourGT</h3>
+                    <p>Plataforma web y móvil de gestión integral para rutas de TourGT, que incluye
+                        herramientas para la administración de usuarios y la planificación de itinerarios.</p>
+                </div>
+            </div>
+
+            <!-- Project 5 (Extra Example) -->
+            <div class="portfolio-project-card" data-category="mobile,saas">
+                <div class="portfolio-project-image">
+                    <img src="/assets/img/THCase.webp" alt="TryHard" />
+                    <div class="portfolio-project-overlay">
+                        <a href="/en-construccion.html" class="portfolio-view-btn">Ver detalles →</a>
+                    </div>
+                </div>
+                <div class="portfolio-project-info">
+                    <div class="portfolio-project-tags">
+                        <span class="portfolio-tag">Apps Móviles</span>
+                        <span class="portfolio-tag">SaaS</span>
+                    </div>
+                    <h3>TryHard</h3>
+                    <p>Plataforma web de comercio electrónico (e-commerce) a medida para la marca de ropa deportiva,
+                        diseñada para optimizar la experiencia de compra y la gestión de ventas online.</p>
+                </div>
+            </div>
+
+            <!-- Project 6 (Extra Example) -->
+            <!-- <div class="portfolio-project-card" data-category="backend">
+                <div class="portfolio-project-image">
+                    <img src="/assets/img/.webp" alt="Cloud Infrastructure API" />
+                    <div class="portfolio-project-overlay">
+                        <a href="/portfolio.html#cloud" class="portfolio-view-btn">Ver detalles →</a>
+                    </div>
+                </div>
+                <div class="portfolio-project-info">
+                    <div class="portfolio-project-tags">
+                        <span class="portfolio-tag">Backend</span>
+                    </div>
+                    <h3>Cloud Infrastructure API</h3>
+                    <p>API robusta para gestión de infraestructura en la nube con escalabilidad automática, monitoreo en
+                        tiempo real y seguridad empresarial.</p>
+                </div>
+            </div> -->
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="portfolio-cta-section">
+        <div class="portfolio-cta-content">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Transformemos tu idea en una solución digital de impacto</p>
+            <a href="/contacto.html" class="portfolio-cta-btn">Contáctanos Hoy →</a>
+        </div>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="/scripts/gspa.js"></script>
+    <script src="/scripts/portfolio-page.js"></script>
+    <script src="/scripts/appear.js"></script>
+
+    <footer>
+        <div class="footerContainer">
+            <div>
+                <div class="logo">
+                    <a href="#">
+                        <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+                    </a>
+                    <p>Building Future Technologies</p>
+                    <br>
+                    &copy; 2026 BFTech
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="/servicios.html">
+                    <p>Servicios</p>
+                </a>
+                <a class="link-display" href="/servicios.html#web">Desarrollo Web</a>
+                <a class="link-display" href="/servicios.html#software">Software a medida</a>
+                <a class="link-display" href="/servicios.html#apps">Apps móviles</a>
+                <a class="link-display" href="/servicios.html#consultoria">Consultoría</a>
+            </div>
+            <div class="footer-links">
+                <a href="/nosotros.html">
+                    <p>Empresa</p>
+                </a>
+                <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
+                <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
+            </div>
+            <div class="footer-links">
+                <a href="/contacto.html">
+                    <p>Contacto</p>
+                </a>
+                <a class="link-display" href="mailto:info@bftech.com">info@bftech.com</a>
+                <a class="link-display" href="tel:+34646476662">+34 646 476 662</a>
+                <a class="link-display">Madrid, España</a>
+            </div>
+            <div class="footer-links">
+                <a href="/portfolio.html">
+                    <p>Proyectos</p>
+                </a>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

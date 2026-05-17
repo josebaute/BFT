@@ -1,81 +1,64 @@
 <!doctype html>
 <html lang="es">
+
+<head>
+
   <head>
-    <head>
-      <!-- Meta básica -->
-      <meta charset="UTF-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-      />
-      <meta name="theme-color" content="#000000" />
+    <!-- Meta básica -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
 
-      <!-- SEO -->
-      <title>
-        BFTech - Consultora de Producto Digital | Web, Software y Apps
-      </title>
-      <meta
-        name="description"
-        content="BFTech es una consultora de producto digital especializada en desarrollo web, software y apps a medida para startups y empresas en España."
-      />
-      <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://bftech.es/" />
+    <!-- SEO -->
+    <title>
+      BFTech - Consultora de Producto Digital | Web, Software y Apps
+    </title>
+    <meta name="description"
+      content="BFTech es una consultora de producto digital especializada en desarrollo web, software y apps a medida para startups y empresas en España." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://bftech.es/" />
 
-      <!-- Favicon -->
-      <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
-      <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
 
-      <!-- Open Graph -->
-      <meta
-        property="og:title"
-        content="BFTech - Consultora de Producto Digital"
-      />
-      <meta
-        property="og:description"
-        content="Construimos productos digitales a medida: webs, software y aplicaciones móviles."
-      />
-      <meta
-        property="og:image"
-        content="https://bftech.es/assets/img/logoBFT.png"
-      />
-      <meta property="og:url" content="https://bftech.es/" />
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="BFTech" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="BFTech - Consultora de Producto Digital" />
+    <meta property="og:description"
+      content="Construimos productos digitales a medida: webs, software y aplicaciones móviles." />
+    <meta property="og:image" content="https://bftech.es/assets/img/logoBFT.png" />
+    <meta property="og:url" content="https://bftech.es/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BFTech" />
 
-      <!-- Fonts -->
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
-        rel="stylesheet"
-      />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 
-      <!-- Styles -->
-      <link rel="stylesheet" href="/styles/styles.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/styles.css" />
 
-      <!-- Google Analytics -->
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-EH3F5LSJBX"
-      ></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-EH3F5LSJBX");
-      </script>
-      <script src="scripts/contact_form.js"></script>
-    </head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3F5LSJBX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-EH3F5LSJBX");
+    </script>
+    <script src="scripts/contact_form.js"></script>
   </head>
+</head>
 
-  <header>
-    <div class="logo">
-      <a href="#">
-        <img src="assets/img/logoBFT.svg" alt="BFTech Logo" />
-      </a>
-    </div>
-    <!-- Navegación 
+<header>
+  <div class="logo">
+    <a href="#">
+      <img src="assets/img/logoBFT.svg" alt="BFTech Logo" />
+    </a>
+  </div>
+  <!-- Navegación 
     <nav class="navbar">
       <a href="/servicios">Servicios</a>
       <a href="/nosotros">Sobre Nosotros</a>
@@ -83,287 +66,338 @@
     </nav>
     -->
 
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <!-- GSAP (debe estar antes de hamburger.js) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="scripts/hamburger.js"></script>
-  </header>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <!-- GSAP (debe estar antes de hamburger.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="scripts/hamburger.js"></script>
+</header>
 
-  <body>
-    <!-- Fondo de partículas -->
-    <!--<canvas id="particles"></canvas>-->
+<body>
+  <!-- Fondo de partículas -->
+  <!--<canvas id="particles"></canvas>-->
 
-    <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
-    <div class="menu-overlay">
-      <nav class="menu-overlay-nav">
-        <a href="/servicios.html">Servicios</a>
-        <a href="/nosotros.html">Sobre Nosotros</a>
-        <a href="/contacto.html">Contacto</a>
-      </nav>
-      <footer class="menu-overlay-nav-footer">
-        <a
-          href="https://www.linkedin.com/company/bftech-consultora-tecnológica/"
-          >LinkedIn</a
-        >
-        <a href="https://www.instagram.com/bftech.es/">Instagram</a>
-      </footer>
-    </div>
-
-    <!-- HERO -->
-
-    <section class="hero">
-      <div class="gridHero">
-        <div>
-          <h1 id="title">Soluciones Digitales <br />Avanzadas</h1>
-          <p id="subtitle">
-            Diseñamos y construimos plataformas, sistemas y aplicaciones con arquitectura robusta, integraciones API y lógica empresarial compleja.
-          </p>
-          <button
-            id="title"
-            class="btn"
-            onclick="window.location.href = '#contact'"
-          >
-            Asesoría Gratis →
-          </button>
-          <button
-            id="title"
-            class="btn2"
-            onclick="window.location.href = '/servicios.html'"
-          >
-            Nuestros Servicios
-          </button>
-        </div>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="scroll-down" id="title">
-        <span></span>
-      </div>
-    </section>
-
-    <!-- Servicios -->
-    <div class="quehacemos" id="title">
-      <h1 class="reveal-title">Nuestros Servicios</h1>
-    </div>
-
-    <section class="services">
-      <div class="service-card">
-        <img src="/assets/img/globe.png" alt="Icono Desarrollo Web" />
-        <h3>Plataformas y Aplicaciones SaaS</h3>
-        <p>Arquitectura basada en APIs, roles, datos y lógica empresarial compleja.</p>
-        <br />
-        <a href="/servicios.html"> Saber mas →</a>
-      </div>
-
-      <div class="service-card">
-        <img src="/assets/img/layers.png" alt="Icono Desarrollo Web" />
-        <h3>Software a medida</h3>
-        <p>Backend y APIs a Medida. Escalabilidad, integraciones con fuentes externas, lógica de negocio compleja.</p>
-        <br />
-        <a href="/servicios.html"> Saber mas →</a>
-      </div>
-
-      <div class="service-card">
-        <img src="/assets/img/mobile-app.png" alt="Icono Desarrollo Web" />
-        <h3>Apps Web y Móviles Complejas</h3>
-        <p>Soluciones con sincronización offline, autenticación segura, procesos de negocio.</p>
-        <br />
-        <a href="/servicios.html"> Saber mas →</a>
-      </div>
-
-      <div class="service-card">
-        <img src="/assets/img/brainstorming.png" alt="Icono Desarrollo Web" />
-        <h3>Consultoría Técnica y Arquitectura</h3>
-        <p>Asesoría experta para decisiones tecnológicas, escalabilidad y seguridad.</p>
-        <br />
-        <a href="/servicios.html"> Saber mas →</a>
-      </div>
-    </section>
-
-    <!-- How we Do It -->
-
-    <section class="how-we-work">
-      <h1 class="reveal-title" id="title">Cómo lo hacemos</h1>
-      <br />
-      <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-
-      <div class="stages">
-        <div class="stage">Planificación</div>
-        <div class="stage">Diseño</div>
-        <div class="stage">Desarrollo</div>
-        <div class="stage">Testing</div>
-        <div class="stage">Lanzamiento</div>
-      </div>
-      <script src="/scripts/hwdBar.js"></script>
-    </section>
-
-    <!-- Foto y explicacion-->
-    <section></section>
-
-    <!-- Portfolio -->
-
-    <section class="portfolio">
-      <div>
-        <h1 class="reveal-title" id="title">Proyectos</h1>
-        <p></p>
-      </div>
-
-      <div id="slide-right" class="portfolio-viewport">
-        <div class="portfolio-track">
-          <div class="portfolio-card">
-            <img src="/assets/img/VPWeb.webp" alt="Proyecto VPWeb" />
-          </div>
-          <!-- <div class="portfolio-card">
-            <img src="/assets/img/RecoTenWeb.webp" alt="Proyecto RecoTen" />
-          </div> -->
-          <!-- <div class="portfolio-card">
-            <img src="/assets/img/GDWeb.webp" alt="Proyecto GuilleDiaz" />
-          </div> -->
-          <div class="portfolio-card">
-            <img src="/assets/img/THWeb.webp" alt="Proyecto THWeb" />
-          </div>
-          <div class="portfolio-card">
-            <img src="/assets/img/TGTWeb.webp" alt="Proyecto TGTWeb" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact us -->
-    <h2 id="contact" class="form-title">Envíanos un mensaje</h2>
-    <p class="form-subtitle">¡Agenda tu consulta gratuita ya!</p>
-    
-    <!-- SECCIÓN DE CONTACTO -->
-    <section class="contact-section">
-    
-      <div class="contact-container">
-        <div class="contact-info-grid">
-          <!-- Email -->
-          <div class="contact-card">
-            <h3>Email</h3>
-            <a style="color: white;" href="mailto:info@bftech.com">info@bftech.com</a>
-            
-          </div>
-
-          <!-- Phone -->
-          <div class="contact-card">
-            <h3>Teléfono</h3>
-            <a style="color: white;" href="tel:+34646476662">+34 646 476 662</a>
-            
-          </div>
-
-          <!-- Location -->
-          <div class="contact-card">
-            <h3>Ubicación</h3>
-            <p>Madrid, España</p>
-            <p>Disponible para proyectos globales</p>
-          </div>
-
-          <!-- Hours -->
-          <div class="contact-card">
-            <h3>Horario de atención</h3>
-            <p>Lunes a Domingo: 24h</p>
-          </div>
-
-          
-        </div>
-
-        
-        <!-- Social Media -->
-        
-      </div>
-      
-      <form id="contact-form" action="https://formspree.io/f/meeljyjj" method="POST">
-        <div class="input-group">
-          <input name="name" type="text" required placeholder="Nombre completo" class="form-input" />
-          <input name="email" type="email" required placeholder="Email" class="form-input" />
-          <input name="phone" type="tel" placeholder="Teléfono" class="form-input" />
-          <textarea name="message" rows="5" required placeholder="Cuéntanos sobre tus objetivos..."
-            class="form-input resize-none"></textarea>
-        </div>
-      
-        <button type="submit" id="submit-btn">
-          <span id="submit-text">Enviar Mensaje</span>
-          <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-          </svg>
-        </button>
-      
-        <div id="success-message" class="hidden">
-          ¡Gracias por tu mensaje! Te contactaré pronto.
-        </div>
-      </form>
-    </section>
-
-    <div class="contact-social">
-      <h3>Síguenos</h3>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/" target="_blank" rel="noopener"
-          class="social-link">
-          LinkedIn
-        </a>
-        <a href="https://www.instagram.com/bftech.es/" target="_blank" rel="noopener" class="social-link">
-          Instagram
-        </a>
-    
-      </div>
-    </div>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <script src="/scripts/gspa.js"></script>
-    <script src="/scripts/portfolio.js"></script>
-    <script src="/scripts/appear.js"></script>
-
-    <footer>
-      <div class="footerContainer">
-        <div>
-          <div class="logo">
-            <a href="#">
-              <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
-            </a>
-            <p>Consultora de Producto Digital</p>
-            <br />
-            &copy; 2025 BFTech
-          </div>
-        </div>
-        <div class="footer-links">
-          <a href="/servicios.html"><p>Servicios</p></a>
-          <a class="link-display" href="/servicios.html#web">Desarrollo Web</a>
-          <a class="link-display" href="/servicios.html#software"
-            >Software a medida</a
-          >
-          <a class="link-display" href="/servicios.html#apps">Apps móviles</a>
-          <a class="link-display" href="/servicios.html#consultoria"
-            >Consultoría</a
-          >
-        </div>
-        <div class="footer-links">
-          <a href="/nosotros.html"><p>Empresa</p></a>
-          <a class="link-display" href="/nosotros.html#mision"
-            >Nuestra Misión</a
-          >
-          <a class="link-display" href="/nosotros.html#valores"
-            >Nuestros Valores</a
-          >
-        </div>
-        <div class="footer-links">
-          <a href="/contacto.html"><p>Contacto</p></a>
-          <a class="link-display" href="mailto:contacto@bftech.com"
-            >info@bftech.com</a
-          >
-          <a class="link-display" href="tel:+34646476662">+34 646 476 662</a>
-          <a class="link-display">Madrid, España</a>
-        </div>
-      </div>
+  <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
+  <div class="menu-overlay">
+    <nav class="menu-overlay-nav">
+      <a href="/servicios.html">Servicios</a>
+      <a href="/nosotros.html">Sobre Nosotros</a>
+      <a href="/portfolio.html">Proyectos</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <footer class="menu-overlay-nav-footer">
+      <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
+      <a href="https://www.instagram.com/bftech.es/">Instagram</a>
     </footer>
-  </body>
+  </div>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="gridHero">
+      <div>
+        <h1 id="title">Building Future <br />Technologies</h1>
+        <p id="subtitle">
+          Diseñamos y construimos plataformas, sistemas y aplicaciones con arquitectura robusta, integraciones API y
+          lógica empresarial compleja.
+        </p>
+        <button id="title" class="btn" onclick="window.location.href = '#contact'">
+          Asesoría Gratis →
+        </button>
+        <button id="title" class="btn2" onclick="window.location.href = '/servicios.html'">
+          Nuestros Servicios
+        </button>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-down" id="title">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <div class="quehacemos" id="title">
+    <h1 class="reveal-title">Nuestros Servicios</h1>
+  </div>
+
+  <section class="services">
+    <div class="service-card">
+      <img src="/assets/img/globe.png" alt="Icono Desarrollo Web" />
+      <h3>Plataformas y Aplicaciones SaaS</h3>
+      <p>Arquitectura basada en APIs, roles, datos y lógica empresarial compleja.</p>
+      <br />
+      <a href="/servicios.html"> Saber mas →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="/assets/img/layers.png" alt="Icono Desarrollo Web" />
+      <h3>Software a medida</h3>
+      <p>Backend y APIs a Medida. Escalabilidad, integraciones con fuentes externas, lógica de negocio compleja.</p>
+      <br />
+      <a href="/servicios.html"> Saber mas →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="/assets/img/mobile-app.png" alt="Icono Desarrollo Web" />
+      <h3>Apps Web y Móviles Complejas</h3>
+      <p>Soluciones con sincronización offline, autenticación segura, procesos de negocio.</p>
+      <br />
+      <a href="/servicios.html"> Saber mas →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="/assets/img/brainstorming.png" alt="Icono Desarrollo Web" />
+      <h3>Consultoría Técnica y Arquitectura</h3>
+      <p>Asesoría experta para decisiones tecnológicas, escalabilidad y seguridad.</p>
+      <br />
+      <a href="/servicios.html"> Saber mas →</a>
+    </div>
+  </section>
+
+  <!-- How we Do It -->
+
+  <section class="how-we-work">
+    <h1 class="reveal-title" id="title">Cómo lo hacemos</h1>
+    <br />
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div class="stages">
+      <div class="stage">Planificación</div>
+      <div class="stage">Diseño</div>
+      <div class="stage">Desarrollo</div>
+      <div class="stage">Testing</div>
+      <div class="stage">Lanzamiento</div>
+    </div>
+    <script src="/scripts/hwdBar.js"></script>
+  </section>
+
+  <!-- Foto y explicacion-->
+  <section></section>
+
+  <!-- Case Studies -->
+  <section class="case-studies-section">
+    <div class="case-studies-header">
+      <h1 class="reveal-title">Nuestros Proyectos</h1>
+      <p class="case-studies-subtitle">Proyectos reales que transformaron negocios a través de tecnología</p>
+    </div>
+
+    <!-- Filtros por categoría -->
+    <div class="case-studies-filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="web">Desarrollo Web</button>
+      <button class="filter-btn" data-filter="saas">SaaS</button>
+      <button class="filter-btn" data-filter="mobile">Apps Móviles</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+    </div>
+
+    <!-- Case Studies Grid -->
+    <div class="case-studies-container">
+
+      <!-- Case Study 1 -->
+      <div class="case-study-card" data-category="web, mobile, backend">
+        <div class="case-study-content">
+          <div class="case-study-tags">
+            <span class="tag">Desarrollo Web</span>
+            <span class="tag">Apps Móviles</span>
+            <span class="tag">Backend</span>
+          </div>
+          <img src="/assets/img/logoRecoTenxCabildo.png" alt="Logo Proyecto 1" class="case-study-logo" />
+          <h3>RecoTen | TravelPlanner Cabildo de Tenerife</h3>
+          <p>Desarrollo completo de una app móvil, web y backend desde cero, integrando APIs externas,
+            gestión de datos estructurados y despliegue en producción para ofrecer una solución escalable
+            y lista para usuarios reales
+          </p>
+          <a href="/en-construccion.html" class="read-more-btn">Ver caso completo →</a>
+        </div>
+        <div class="case-study-image">
+          <img src="/assets/img/RecoTenWeb.webp" alt="TravelPlanner Cabildo de Tenerife" />
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="case-study-card reverse" data-category="web,saas">
+        <div class="case-study-content">
+          <div class="case-study-tags">
+            <span class="tag">Desarrollo Web</span>
+            <span class="tag">SaaS</span>
+          </div>
+          <img src="/assets/img/logoVP.png" alt="Logo Proyecto 2" class="case-study-logo" />
+          <h3>Vibra Producciones</h3>
+          <p>Sistema de gestión empresarial con integraciones API complejas, autenticación avanzada y lógica de negocio
+            escalable.</p>
+          <a href="/en-construccion.html" class="read-more-btn">Ver caso completo →</a>
+        </div>
+        <div class="case-study-image">
+          <img src="/assets/img/VPCase.webp" alt="Vibra Producciones" />
+        </div>
+      </div>
+
+      <!-- Case Study 3 -->
+      <div class="case-study-card" data-category="mobile,web">
+        <div class="case-study-content">
+          <div class="case-study-tags">
+            <span class="tag">Apps Móviles</span>
+            <span class="tag">Desarrollo Web</span>
+          </div>
+          <img src="/assets/img/logoGDFit.png" alt="Logo Proyecto 3" class="case-study-logo" />
+          <h3>GDFit</h3>
+          <p>App móvil con sincronización offline, actividad en tiempo real y notificaciones push. También versión web
+            responsive.</p>
+          <a href="/en-construccion.html" class="read-more-btn">Ver caso completo →</a>
+        </div>
+        <div class="case-study-image">
+          <img src="/assets/img/GDFitCase.webp" alt="GDFit" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ver más -->
+    <div class="case-studies-footer">
+      <button class="view-more-btn">Ver todos los proyectos</button>
+    </div>
+  </section>
+
+  <!-- Contact us -->
+  <h2 id="contact" class="form-title">Envíanos un mensaje</h2>
+  <p class="form-subtitle">¡Agenda tu consulta gratuita ya!</p>
+
+  <!-- SECCIÓN DE CONTACTO -->
+  <section class="contact-section">
+
+    <div class="contact-container">
+      <div class="contact-info-grid">
+        <!-- Email -->
+        <div class="contact-card">
+          <h3>Email</h3>
+          <a style="color: white;" href="mailto:info@bftech.com">info@bftech.com</a>
+
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-card">
+          <h3>Teléfono</h3>
+          <a style="color: white;" href="tel:+34646476662">+34 646 476 662</a>
+
+        </div>
+
+        <!-- Location -->
+        <div class="contact-card">
+          <h3>Ubicación</h3>
+          <p>Madrid, España</p>
+          <p>Disponible para proyectos globales</p>
+        </div>
+
+        <!-- Hours -->
+        <div class="contact-card">
+          <h3>Horario de atención</h3>
+          <p>Lunes a Viernes: 8am - 20pm</p>
+          <p>Sábado y Domingo: 10am - 18pm</p>
+        </div>
+
+
+      </div>
+
+
+      <!-- Social Media -->
+
+    </div>
+
+    <form id="contact-form" action="https://formspree.io/f/meeljyjj" method="POST">
+      <div class="input-group">
+        <input name="name" type="text" required placeholder="Nombre completo" class="form-input" />
+        <input name="email" type="email" required placeholder="Email" class="form-input" />
+        <input name="phone" type="tel" placeholder="Teléfono" class="form-input" />
+        <textarea name="message" rows="5" required placeholder="Cuéntanos sobre tus objetivos..."
+          class="form-input resize-none"></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn">
+        <span id="submit-text">Enviar Mensaje</span>
+        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+        </svg>
+      </button>
+
+      <div id="success-message" class="hidden">
+        ¡Gracias por tu mensaje! Te contactaré pronto.
+      </div>
+    </form>
+  </section>
+
+  <div class="contact-social">
+    <h3>Síguenos</h3>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/" target="_blank" rel="noopener"
+        class="social-link">
+        LinkedIn
+      </a>
+      <a href="https://www.instagram.com/bftech.es/" target="_blank" rel="noopener" class="social-link">
+        Instagram
+      </a>
+
+    </div>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script src="/scripts/gspa.js"></script>
+  <script src="/scripts/case-studies.js"></script>
+  <script src="/scripts/portfolio.js"></script>
+  <script src="/scripts/appear.js"></script>
+
+  <footer>
+    <div class="footerContainer">
+      <div>
+        <div class="logo">
+          <a href="#">
+            <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+          </a>
+          <p>Building Future Technologies</p>
+          <br />
+          &copy; 2026 BFTech
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="/servicios.html">
+          <p>Servicios</p>
+        </a>
+        <a class="link-display" href="/servicios.html#web">Desarrollo Web</a>
+        <a class="link-display" href="/servicios.html#software">Software a medida</a>
+        <a class="link-display" href="/servicios.html#apps">Apps móviles</a>
+        <a class="link-display" href="/servicios.html#consultoria">Consultoría</a>
+      </div>
+      <div class="footer-links">
+        <a href="/nosotros.html">
+          <p>Empresa</p>
+        </a>
+        <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
+        <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
+      </div>
+      <div class="footer-links">
+        <a href="/contacto.html">
+          <p>Contacto</p>
+        </a>
+        <a class="link-display" href="mailto:info@bftech.com">info@bftech.com</a>
+        <a class="link-display" href="tel:+34646476662">+34 646 476 662</a>
+        <a class="link-display">Madrid, España</a>
+      </div>
+      <div class="footer-links">
+        <a href="/portfolio.html">
+          <p>Proyectos</p>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

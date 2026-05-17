@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- SEO -->
+    <title>Vibra Producciones - Sistema de Gestión | BFTech - Caso de Estudio</title>
+    <meta name="description"
+        content="Conoce cómo desarrollamos un sistema de gestión empresarial escalable para Vibra Producciones con integraciones API complejas." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://bftech.es/projects/vibra.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3F5LSJBX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-EH3F5LSJBX");
+    </script>
+</head>
+
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+        </a>
+    </div>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="/scripts/hamburger.js"></script>
+</header>
+
+<body>
+    <div class="menu-overlay">
+        <nav class="menu-overlay-nav">
+            <a href="/">Home</a>
+            <a href="/servicios.html">Servicios</a>
+            <a href="/nosotros.html">Sobre Nosotros</a>
+            <a href="/portfolio.html">Proyectos</a>
+            <a href="/contacto.html">Contacto</a>
+        </nav>
+        <footer class="menu-overlay-nav-footer">
+            <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
+            <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+        </footer>
+    </div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <div class="project-breadcrumb">
+                <a href="/portfolio.html">Proyectos</a> / <span>Vibra Producciones</span>
+            </div>
+            <h1>Vibra Producciones</h1>
+            <p>Sistema de gestión empresarial escalable con integraciones API avanzadas</p>
+            <div class="project-tags">
+                <span class="tag">Backend</span>
+                <span class="tag">SaaS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="project-image-section">
+        <img src="/assets/img/VPCase.webp" alt="Vibra Producciones Platform" />
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-overview">
+                <h2>Resumen del Proyecto</h2>
+                <p>Vibra Producciones es un cliente en el sector de eventos y producción que necesitaba un sistema
+                    de gestión empresarial completo para automatizar sus procesos internos.</p>
+                <p>Desarrollamos un SaaS robusto con autenticación avanzada, integraciones API complejas y lógica
+                    de negocio escalable que permite gestionar múltiples clientes simultáneamente.</p>
+            </div>
+
+            <div class="project-stats">
+                <div class="stat">
+                    <h3>Duración</h3>
+                    <p>4 meses</p>
+                </div>
+                <div class="stat">
+                    <h3>Equipo</h3>
+                    <p>5 personas</p>
+                </div>
+                <div class="stat">
+                    <h3>Eventos Gestionados</h3>
+                    <p>500+/mes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desafíos -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Desafíos Técnicos</h2>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <h3>Integraciones API Complejas</h3>
+                    <p>Conexión con sistemas de terceros para pagos, mailing, calendarios y herramientas de gestión.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Autenticación Avanzada</h3>
+                    <p>Sistema multi-rol con permisos granulares, SSO y soporte para dos factores (2FA).</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Manejo de Datos Críticos</h3>
+                    <p>Gestión segura de información sensible de clientes, contratos y transacciones financieras.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Escalabilidad Horizontal</h3>
+                    <p>Arquitectura preparada para soportar crecimiento de clientes y datos sin degradación de
+                        rendimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluciones -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Soluciones Implementadas</h2>
+            <div class="solutions-grid">
+                <div class="solution">
+                    <h3>Backend Seguro</h3>
+                    <ul>
+                        <li>API con autenticación JWT y OAuth2</li>
+                        <li>Encriptación end-to-end para datos sensibles</li>
+                        <li>Auditoria de todas las acciones</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>Integraciones</h3>
+                    <ul>
+                        <li>Stripe para pagos</li>
+                        <li>SendGrid para email</li>
+                        <li>Google Calendar API</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>Base de Datos</h3>
+                    <ul>
+                        <li>PostgreSQL con replicación</li>
+                        <li>Redis para caché y sesiones</li>
+                        <li>Backups automatizados</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>Monitoreo</h3>
+                    <ul>
+                        <li>Alertas en tiempo real</li>
+                        <li>Logs centralizados</li>
+                        <li>Análisis de rendimiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Tecnológico -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Stack Tecnológico</h2>
+            <div class="tech-stack">
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <p>Node.js • Express • PostgreSQL • Redis • GraphQL</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <p>React • TypeScript • Material-UI • Redux</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Infraestructura</h3>
+                    <p>AWS EC2 • RDS • ElastiCache • CloudFront</p>
+                </div>
+                <div class="tech-category">
+                    <h3>DevOps</h3>
+                    <p>Docker • Kubernetes • CI/CD • Terraform</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Resultados</h2>
+            <div class="results-grid">
+                <div class="result">
+                    <h3>80%</h3>
+                    <p>Reducción en tiempo de gestión</p>
+                </div>
+                <div class="result">
+                    <h3>500+</h3>
+                    <p>Eventos gestionados mensualmente</p>
+                </div>
+                <div class="result">
+                    <h3>99.95%</h3>
+                    <p>Disponibilidad del sistema</p>
+                </div>
+                <div class="result">
+                    <h3>5x</h3>
+                    <p>Incremento en eficiencia operativa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="project-cta">
+        <div class="project-container">
+            <h2>¿Necesitas un sistema similar para tu empresa?</h2>
+            <p>Contáctanos para analizar tu caso específico</p>
+            <a href="/contacto.html" class="cta-button">Iniciar Conversación →</a>
+        </div>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/scripts/gspa.js"></script>
+    <script src="/scripts/appear.js"></script>
+
+    <footer>
+        <div class="footerContainer">
+            <div>
+                <div class="logo">
+                    <a href="/">
+                        <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+                    </a>
+                    <p>Building Future Technologies</p>
+                    <br />
+                    &copy; 2026 BFTech
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="/servicios.html">
+                    <p>Servicios</p>
+                </a>
+                <a class="link-display" href="/servicios.html#web">Desarrollo Web</a>
+                <a class="link-display" href="/servicios.html#software">Software a medida</a>
+                <a class="link-display" href="/servicios.html#apps">Apps móviles</a>
+                <a class="link-display" href="/servicios.html#consultoria">Consultoría</a>
+            </div>
+            <div class="footer-links">
+                <a href="/nosotros.html">
+                    <p>Empresa</p>
+                </a>
+                <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
+                <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
+            </div>
+            <div class="footer-links">
+                <a href="/contacto.html">
+                    <p>Contacto</p>
+                </a>
+                <a class="link-display" href="mailto:info@bftech.com">info@bftech.com</a>
+                <a class="link-display" href="tel:+34646476662">+34 646 476 662</a>
+                <a class="link-display">Madrid, España</a>
+            </div>
+            <div class="footer-links">
+                <a href="/portfolio.html">
+                    <p>Proyectos</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

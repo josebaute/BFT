@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- SEO -->
+    <title>RecoTen - TravelPlanner | BFTech - Caso de Estudio</title>
+    <meta name="description"
+        content="Conoce cómo desarrollamos RecoTen, una plataforma completa de viajes con app móvil, web y backend para el Cabildo de Tenerife." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://bftech.es/projects/recoten.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EH3F5LSJBX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-EH3F5LSJBX");
+    </script>
+</head>
+
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+        </a>
+    </div>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="/scripts/hamburger.js"></script>
+</header>
+
+<body>
+    <div class="menu-overlay">
+        <nav class="menu-overlay-nav">
+            <a href="/">Home</a>
+            <a href="/servicios.html">Servicios</a>
+            <a href="/nosotros.html">Sobre Nosotros</a>
+            <a href="/portfolio.html">Proyectos</a>
+            <a href="/contacto.html">Contacto</a>
+        </nav>
+        <footer class="menu-overlay-nav-footer">
+            <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
+            <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+        </footer>
+    </div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <div class="project-breadcrumb">
+                <a href="/portfolio.html">Proyectos</a> / <span>RecoTen</span>
+            </div>
+            <h1>RecoTen | TravelPlanner Cabildo de Tenerife</h1>
+            <p>Plataforma completa de viajes con app móvil, web y backend escalable</p>
+            <div class="project-tags">
+                <span class="tag">Desarrollo Web</span>
+                <span class="tag">Apps Móviles</span>
+                <span class="tag">Backend</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Image -->
+    <section class="project-image-section">
+        <img src="/assets/img/RecoTenWeb.webp" alt="RecoTen Platform" />
+    </section>
+
+    <!-- Project Overview -->
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-overview">
+                <h2>Resumen del Proyecto</h2>
+                <p>RecoTen es una plataforma integral de viajes desarrollada desde cero para el Cabildo de Tenerife.
+                    El proyecto incluye una aplicación móvil, versión web y un backend robusto que integra múltiples
+                    APIs externas
+                    para proporcionar una experiencia completa de planificación de viajes.</p>
+                <p>Implementamos arquitectura escalable, gestión de datos estructurados y despliegue en producción con
+                    usuarios reales.</p>
+            </div>
+
+            <div class="project-stats">
+                <div class="stat">
+                    <h3>Duración</h3>
+                    <p>3 meses</p>
+                </div>
+                <div class="stat">
+                    <h3>Equipo</h3>
+                    <p>2 personas</p>
+                </div>
+                <!-- <div class="stat">
+                    <h3>Usuarios Activos</h3>
+                    <p>10K+</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Desafíos -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Desafíos Técnicos</h2>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <h3>Integración de APIs Múltiples</h3>
+                    <p>Sincronización de datos desde múltiples proveedores de viajes, hoteles y transportes en tiempo
+                        real.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Sincronización Offline</h3>
+                    <p>La aplicación móvil mantiene funcionalidad completa sin conexión a internet, sincronizándose
+                        cuando hay conexión.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Escalabilidad</h3>
+                    <p>Arquitectura preparada para soportar miles de usuarios simultáneos con mapas y datos en tiempo
+                        real.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Experiencia Multiplataforma</h3>
+                    <p>Mantener consistencia visual y funcional entre app móvil iOS, Android y versión web responsive.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soluciones -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Soluciones Implementadas</h2>
+            <div class="solutions-grid">
+                <div class="solution">
+                    <h3>Backend Robusto</h3>
+                    <ul>
+                        <li>API RESTful escalable con Node.js</li>
+                        <li>Base de datos distribuida</li>
+                        <li>Sistema de caché para optimizar consultas</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>App Móvil Nativa</h3>
+                    <ul>
+                        <li>Aplicaciones iOS y Android nativas</li>
+                        <li>Sincronización offline con SQLite local</li>
+                        <li>Mapas interactivos con Google Maps</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>Web Responsive</h3>
+                    <ul>
+                        <li>Interfaz moderna y responsive</li>
+                        <li>PWA para acceso desde navegador</li>
+                        <li>Carga optimizada y rápida</li>
+                    </ul>
+                </div>
+                <div class="solution">
+                    <h3>Integraciones</h3>
+                    <ul>
+                        <li>APIs de proveedores de viajes</li>
+                        <li>Pagos seguros con Stripe</li>
+                        <li>Autenticación OAuth2</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Tecnológico -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Stack Tecnológico</h2>
+            <div class="tech-stack">
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <p>Node.js • Express • PostgreSQL • Redis • Docker</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Frontend Web</h3>
+                    <p>React • TypeScript • Tailwind CSS • Vite</p>
+                </div>
+                <div class="tech-category">
+                    <h3>Mobile</h3>
+                    <p>React Native • Swift • Kotlin • Firebase</p>
+                </div>
+                <div class="tech-category">
+                    <h3>DevOps</h3>
+                    <p>AWS • GitHub Actions • Terraform • Datadog</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados -->
+    <section class="project-section">
+        <div class="project-container">
+            <h2>Resultados</h2>
+            <div class="results-grid">
+                <div class="result">
+                    <h3>+10,000</h3>
+                    <p>Usuarios activos en el primer mes</p>
+                </div>
+                <div class="result">
+                    <h3>99.9%</h3>
+                    <p>Uptime en producción</p>
+                </div>
+                <div class="result">
+                    <h3>2s</h3>
+                    <p>Tiempo de carga promedio</p>
+                </div>
+                <div class="result">
+                    <h3>4.8★</h3>
+                    <p>Calificación en app stores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="project-cta">
+        <div class="project-container">
+            <h2>¿Quieres un proyecto similar?</h2>
+            <p>Contáctanos para discutir tu próxima plataforma digital</p>
+            <a href="/contacto.html" class="cta-button">Iniciar Conversación →</a>
+        </div>
+    </section>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="/scripts/gspa.js"></script>
+    <script src="/scripts/appear.js"></script>
+
+    <footer>
+        <div class="footerContainer">
+            <div>
+                <div class="logo">
+                    <a href="/">
+                        <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+                    </a>
+                    <p>Building Future Technologies</p>
+                    <br />
+                    &copy; 2026 BFTech
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="/servicios.html">
+                    <p>Servicios</p>
+                </a>
+                <a class="link-display" href="/servicios.html#web">Desarrollo Web</a>
+                <a class="link-display" href="/servicios.html#software">Software a medida</a>
+                <a class="link-display" href="/servicios.html#apps">Apps móviles</a>
+                <a class="link-display" href="/servicios.html#consultoria">Consultoría</a>
+            </div>
+            <div class="footer-links">
+                <a href="/nosotros.html">
+                    <p>Empresa</p>
+                </a>
+                <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
+                <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
+            </div>
+            <div class="footer-links">
+                <a href="/contacto.html">
+                    <p>Contacto</p>
+                </a>
+                <a class="link-display" href="mailto:info@bftech.com">info@bftech.com</a>
+                <a class="link-display" href="tel:+34646476662">+34 646 476 662</a>
+                <a class="link-display">Madrid, España</a>
+            </div>
+            <div class="footer-links">
+                <a href="/portfolio.html">
+                    <p>Proyectos</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

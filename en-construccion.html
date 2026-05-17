@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- SEO -->
+    <title>En Construcción | BFTech</title>
+    <meta name="description"
+        content="Esta página está en construcción. Estamos trabajando para traerte el mejor contenido." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+
+    <style>
+        .construction-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            padding-top: 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .construction-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .construction-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .construction-title {
+            font-family: "GothamBold", sans-serif;
+            font-size: 3rem;
+            margin: 20px 0;
+            background: linear-gradient(90deg, #ffc419, #d3a707);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .construction-subtitle {
+            font-family: "GothamBook", sans-serif;
+            font-size: 1.5rem;
+            color: #929292;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .construction-message {
+            font-family: "GothamBook", sans-serif;
+            font-size: 1.1rem;
+            color: #dcdcdc;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .construction-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .construction-btn {
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-family: "GothamMedium", sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid #ffd642;
+        }
+
+        .construction-btn-primary {
+            background: #ffd642;
+            color: #000000;
+        }
+
+        .construction-btn-primary:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 214, 66, 0.3);
+        }
+
+        .construction-btn-secondary {
+            background: transparent;
+            color: #ffd642;
+        }
+
+        .construction-btn-secondary:hover {
+            background: #ffd642;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* Animated Background Elements */
+        .construction-bg-element {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 8rem;
+            pointer-events: none;
+        }
+
+        .construction-bg-element:nth-child(1) {
+            top: -50px;
+            left: -50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .construction-bg-element:nth-child(2) {
+            bottom: -80px;
+            right: -80px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(30px);
+            }
+        }
+
+        .construction-progress {
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .progress-label {
+            font-family: "GothamMedium", sans-serif;
+            font-size: 0.95rem;
+            color: #ffd642;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd642, #b49b3f);
+            width: 75%;
+            border-radius: 4px;
+            animation: fillProgress 3s ease-in-out infinite;
+        }
+
+        @keyframes fillProgress {
+
+            0%,
+            100% {
+                width: 65%;
+            }
+
+            50% {
+                width: 85%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .construction-title {
+                font-size: 2rem;
+            }
+
+            .construction-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .construction-message {
+                font-size: 1rem;
+            }
+
+            .construction-buttons {
+                flex-direction: column;
+            }
+
+            .construction-btn {
+                width: 100%;
+            }
+
+            .construction-icon {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<header>
+    <div class="logo">
+        <a href="/">
+            <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+        </a>
+    </div>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="/scripts/hamburger.js"></script>
+</header>
+
+<body>
+    <div class="menu-overlay">
+        <nav class="menu-overlay-nav">
+            <a href="/">Home</a>
+            <a href="/servicios.html">Servicios</a>
+            <a href="/nosotros.html">Sobre Nosotros</a>
+            <a href="/portfolio.html">Proyectos</a>
+            <a href="/contacto.html">Contacto</a>
+        </nav>
+        <footer class="menu-overlay-nav-footer">
+            <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
+            <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+        </footer>
+    </div>
+
+    <div class="construction-container">
+        <div class="construction-bg-element">🔧</div>
+        <div class="construction-bg-element">⚙️</div>
+
+        <div class="construction-content">
+            <div class="construction-icon">🚀</div>
+
+            <h1 class="construction-title">¡En Construcción!</h1>
+
+            <p class="construction-subtitle">
+                Estamos trabajando en algo extraordinario
+            </p>
+
+            <p class="construction-message">
+                Esta página está en desarrollo y pronto estará disponible con toda la información detallada sobre este
+                increíble proyecto. Nuestro equipo está puliendo cada detalle para ofrecerte la mejor experiencia.
+            </p>
+
+            <div class="construction-buttons">
+                <a href="/" class="construction-btn construction-btn-primary">
+                    Volver al Home
+                </a>
+                <a href="/portfolio.html" class="construction-btn construction-btn-secondary">
+                    Ver Otros Proyectos
+                </a>
+            </div>
+
+            <div class="construction-progress">
+                <div class="progress-label">Progreso de Desarrollo</div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    <div class="footerContainer">
+      <div>
+        <div class="logo">
+          <a href="#">
+            <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+          </a>
+          <p>Building Future Technologies</p>
+          <br />
+          &copy; 2026 BFTech
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="/servicios.html">
+          <p>Servicios</p>
+        </a>
+        <a class="link-display" href="/servicios.html#web">Desarrollo Web</a>
+        <a class="link-display" href="/servicios.html#software">Software a medida</a>
+        <a class="link-display" href="/servicios.html#apps">Apps móviles</a>
+        <a class="link-display" href="/servicios.html#consultoria">Consultoría</a>
+      </div>
+      <div class="footer-links">
+        <a href="/nosotros.html">
+          <p>Empresa</p>
+        </a>
+        <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
+        <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
+      </div>
+      <div class="footer-links">
+        <a href="/contacto.html">
+          <p>Contacto</p>
+        </a>
+        <a class="link-display" href="mailto:info@bftech.com">info@bftech.com</a>
+        <a class="link-display" href="tel:+34646476662">+34 646 476 662</a>
+        <a class="link-display">Madrid, España</a>
+      </div>
+      <div class="footer-links">
+        <a href="/portfolio.html">
+          <p>Proyectos</p>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
