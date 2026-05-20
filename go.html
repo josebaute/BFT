@@ -127,107 +127,11 @@
         .redirect-message strong {
             color: #ffc419;
         }
-
-        /* Estilos para instrucciones de Instagram */
-        .instagram-instructions {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(25, 25, 25, 0.98));
-            z-index: 10000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            gap: 30px;
-        }
-
-        .instagram-instructions.show {
-            display: flex;
-        }
-
-        .instagram-content {
-            max-width: 500px;
-            text-align: center;
-        }
-
-        .instagram-content h2 {
-            font-family: "GothamBold", sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #ffc419;
-        }
-
-        .instagram-content p {
-            font-family: "Inter", sans-serif;
-            color: #cccccc;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .steps {
-            text-align: left;
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(255, 196, 25, 0.05);
-            border-left: 3px solid #ffc419;
-            border-radius: 8px;
-        }
-
-        .steps li {
-            font-family: "Inter", sans-serif;
-            color: #cccccc;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .steps li strong {
-            color: #ffc419;
-        }
-
-        .continue-btn {
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: linear-gradient(90deg, #ffc419, #d3a707);
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            font-family: "GothamBold", sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .continue-btn:active {
-            transform: scale(0.95);
-        }
     </style>
 </head>
 
 <body onload="openBrowser()">
-    <!-- Modal de instrucciones para Instagram -->
-    <div class="instagram-instructions" id="instagramModal">
-        <div class="instagram-content">
-            <h2>⚠️ Abre en navegador externo</h2>
-            <p>Detectamos que estás en el navegador de Instagram. Sigue estos pasos:</p>
-
-            <ol class="steps">
-                <li>Toca los <strong>3 puntos</strong> (⋮) en la esquina superior derecha</li>
-                <li>Selecciona <strong>"Open in external browser"</strong> o <strong>"Abrir en navegador"</strong></li>
-                <li>Se abrirá automáticamente tu navegador preferido</li>
-            </ol>
-
-            <p style="font-size: 0.9rem; color: #999;">O toca el botón de abajo para continuar:</p>
-            <button class="continue-btn" onclick="forceExternalBrowser()">Abrir en navegador</button>
-        </div>
-    </div>
-
-    <!-- Contenedor de redirección normal -->
-    <div class="redirect-container" id="redirectContainer">
+    <div class="redirect-container">
         <div class="redirect-logo">
             <img src="assets/img/logoBFT.svg" alt="BFTech Logo" />
         </div>
@@ -248,45 +152,15 @@
     </div>
 
     <script>
-        var url = "https://bftech.es";
-        var isInstagram = navigator.userAgent.includes("Instagram");
-
-        function forceExternalBrowser() {
-            // Intenta múltiples métodos para salir del in-app browser
-
-            // Método 1: Redirección directa
-            window.location = url;
-
-            // Método 2: Open en nueva ventana (puede romper algunas restricciones)
-            setTimeout(function () {
-                if (typeof window.open !== 'undefined') {
-                    window.open(url, '_blank');
-                }
-            }, 500);
-        }
-
         function openBrowser() {
-            var ua = navigator.userAgent || "";
-
-            // Si estamos en Instagram
-            if (isInstagram) {
-                // Mostrar instrucciones
-                document.getElementById('instagramModal').classList.add('show');
-                document.getElementById('redirectContainer').style.display = 'none';
-
-                // Esperar un poco y luego intentar forzar la salida
-                setTimeout(function () {
-                    forceExternalBrowser();
-                }, 2000);
-                return;
-            }
+            var url = "https://bftech.es"; // tu web real
 
             // iPhone - Abre Safari (navegador por defecto)
-            if (ua.match(/iPhone|iPad|iPod/i)) {
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
                 window.location = url;
             }
             // Android - Abre Chrome
-            else if (ua.match(/Android/i)) {
+            else if (navigator.userAgent.match(/Android/i)) {
                 window.location = "intent://" + url.replace("https://", "") + "#Intent;scheme=https;package=com.android.chrome;end";
             }
             // fallback
@@ -298,15 +172,12 @@
         }
 
         // Permitir clic en el mensaje para redirigir manualmente
-        setTimeout(function () {
-            var msgElement = document.querySelector('.redirect-message');
-            if (msgElement) {
-                msgElement.addEventListener('click', function () {
-                    window.location = url;
-                });
-                msgElement.style.cursor = 'pointer';
-            }
-        }, 100);
+        document.querySelector('.redirect-message').addEventListener('click', function () {
+            window.location = "https://bftech.es";
+        });
+
+        // Hacer el cursor pointer en el mensaje
+        document.querySelector('.redirect-message').style.cursor = 'pointer';
     </script>
 </body>
 
