@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
   readMoreBtns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
-      window.location.href = "/portfolio.html";
+      window.location.href = "/proyectos.html";
     });
   });
 
   const viewMoreBtn = document.querySelector(".view-more-btn");
   if (viewMoreBtn) {
     viewMoreBtn.addEventListener("click", function () {
-      window.location.href = "/portfolio.html";
+      window.location.href = "/proyectos.html";
     });
   }
 });

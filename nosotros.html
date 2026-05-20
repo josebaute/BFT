@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
+<head>
+
   <head>
-    <head>
-  <!-- Meta básica -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Meta básica -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <!-- SEO -->
-  <title>Sobre Nosotros | BFTech - Consultora de Producto Digital</title>
-  <meta name="description" content="Conoce BFTech: nuestra misión, valores y enfoque como consultora de producto digital especializada en web, software y apps a medida." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://bftech.es/nosotros.html" />
+    <!-- SEO -->
+    <title>Sobre Nosotros | BFTech - Consultora de Producto Digital</title>
+    <meta name="description"
+      content="Conoce BFTech: nuestra misión, valores y enfoque como consultora de producto digital especializada en web, software y apps a medida." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://bftech.es/nosotros.html" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
-  <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/logoBFT-favicon.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/logoBFT-favicon.png" sizes="180x180" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Sobre Nosotros | BFTech" />
-  <meta property="og:description" content="Equipo, valores y visión de BFTech, consultora de producto digital." />
-  <meta property="og:image" content="https://bftech.es/assets/img/logoBFT.png" />
-  <meta property="og:url" content="https://bftech.es/nosotros.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="BFTech" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sobre Nosotros | BFTech" />
+    <meta property="og:description" content="Equipo, valores y visión de BFTech, consultora de producto digital." />
+    <meta property="og:image" content="https://bftech.es/assets/img/logoBFT.png" />
+    <meta property="og:url" content="https://bftech.es/nosotros.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BFTech" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
-    rel="stylesheet"
-  />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/styles/styles.css" />
-  <script src="/scripts/cookies.js"></script>
-</head>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <script src="/scripts/cookies.js"></script>
+  </head>
 
-  <body>
-    <header>
-      <div class="logo">
-        <a href="/">
-          <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
-        </a>
-      </div>
-      <!-- Navegación 
+<body>
+  <header>
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/img/logoBFT.svg" alt="BFTech Logo" />
+      </a>
+    </div>
+    <!-- Navegación 
     <nav class="navbar">
       <a href="/servicios">Servicios</a>
       <a href="/nosotros">Sobre Nosotros</a>
@@ -53,134 +53,139 @@
     </nav>
     -->
 
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <!-- GSAP (debe estar antes de hamburger.js) -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-      <script src="/scripts/hamburger.js"></script>
-    </header>
-
-    <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
-    <div class="menu-overlay">
-      <nav class="menu-overlay-nav">
-        <a href="/">Home</a>
-        <a href="/servicios.html">Servicios</a>
-        <a href="/nosotros.html">Sobre Nosotros</a>
-        <a href="/portfolio.html">Proyectos</a>
-        <a href="/contacto.html">Contacto</a>
-      </nav>
-      <footer class="menu-overlay-nav-footer">
-        <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
-        <a href="https://www.instagram.com/bftech.es/">Instagram</a>
-      </footer>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero about-hero">
-      <div class="gridHero">
-        <div>
-          <h1 id="title">Quiénes Somos</h1>
-          <p id="subtitle">
-            Una consultora de producto digital enfocada en transformar ideas en soluciones tecnológicas innovadoras.
-          </p>
-        </div>
-      </div>
-      <div class="scroll-down" id="title">
-        <span></span>
-      </div>
-    </section>
-
-    <!-- About Content Section -->
-    <section id="mision" class="about-content">
-      <div class="about-wrapper">
-        <!-- Left Image -->
-        <div class="about-image">
-          <img src="/assets/img/Grupo1.webp" alt="Equipo BFTech trabajando" />
-        </div>
-
-        <!-- Right Text -->
-        <div  class="about-text">
-          <h2 class="reveal-title">Nuestra Misión</h2>
-          <p>
-            En BFTech creemos que la tecnología debe ser accesible y transformadora. Nuestro objetivo es ayudar a Startups y Empresas a construir productos digitales que realmente impacten en sus usuarios y negocios.
-          </p>
-          <p>
-            Combinamos estrategia, diseño y desarrollo de software con una mentalidad ágil y orientada al resultado.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Values Section -->
-    <section id="valores" class="about-values">
-      <h2 class="reveal-title">Nuestros Valores</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>Innovación</h3>
-          <p>Buscamos constantemente nuevas formas de resolver problemas con tecnología de vanguardia.</p>
-        </div>
-        <div class="value-card">
-          <h3>Transparencia</h3>
-          <p>Comunicación clara y honesta en cada etapa del proyecto con nuestros clientes.</p>
-        </div>
-        <div class="value-card">
-          <h3>Excelencia</h3>
-          <p>Nos comprometemos con la calidad en cada línea de código y cada decisión de diseño.</p>
-        </div>
-        <div class="value-card">
-          <h3>Colaboración</h3>
-          <p>Trabajamos como equipo con nuestros clientes para lograr objetivos compartidos.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="about-team">
-      <h2 class="reveal-title">Nuestro Equipo</h2>
-      <div class="team-grid">
-        <div class="team-content">
-          <div class="team-text">
-            <h3>Quiénes Somos</h3>
-            <p>
-              En BFTech somos un equipo apasionado por la tecnología y la innovación digital. Nos especializamos en crear soluciones personalizadas que transforman ideas en productos digitales de alto impacto.
-            </p>
-            <p>
-              Con una experiencia combinada de varios años, entendemos los desafíos únicos de cada proyecto y nos comprometemos a entregar resultados excepcionales.
-            </p>
-            <p>
-              Nuestro enfoque colaborativo y centrado en el cliente nos permite trabajar como una extensión de tu equipo, asegurando que cada solución no solo cumpla sino que supere tus expectativas.
-            </p>
-            <p>
-              Creemos en la transparencia, la calidad y en construir relaciones a largo plazo basadas en la confianza y el éxito mutuo.
-            </p>
-          </div>
-        </div>
-        <div class="team-images">
-          <div class="team-image-main">
-            <img src="/assets/img/ofi_BFT.webp" alt="Equipo BFTech" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="about-cta">
-      <h2 class="reveal-title">¿Listo para trabajar juntos?</h2>
-      <p>Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.</p>
-      <a href="/contacto.html#contactForm" class="btn">Contáctanos</a>
-    </section>
-
-    <!-- GSAP -->
+    <!-- GSAP (debe estar antes de hamburger.js) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="/scripts/gspa.js"></script>
-    <script src="/scripts/about.js"></script>
+    <script src="/scripts/hamburger.js"></script>
+  </header>
 
-    <footer>
+  <!-- Menu overlay mobile (moved outside header so header remains opaque) -->
+  <div class="menu-overlay">
+    <nav class="menu-overlay-nav">
+      <a href="/">Home</a>
+      <a href="/servicios.html">Servicios</a>
+      <a href="/nosotros.html">Sobre Nosotros</a>
+      <a href="/proyectos.html">Proyectos</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <footer class="menu-overlay-nav-footer">
+      <a href="https://www.linkedin.com/company/bftech-consultora-tecnológica/">LinkedIn</a>
+      <a href="https://www.instagram.com/bftech.es/">Instagram</a>
+    </footer>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero about-hero">
+    <div class="gridHero">
+      <div>
+        <h1 id="title">Quiénes Somos</h1>
+        <p id="subtitle">
+          Una consultora de producto digital enfocada en transformar ideas en soluciones tecnológicas innovadoras.
+        </p>
+      </div>
+    </div>
+    <div class="scroll-down" id="title">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- About Content Section -->
+  <section id="mision" class="about-content">
+    <div class="about-wrapper">
+      <!-- Left Image -->
+      <div class="about-image">
+        <img src="/assets/img/Grupo1.webp" alt="Equipo BFTech trabajando" />
+      </div>
+
+      <!-- Right Text -->
+      <div class="about-text">
+        <h2 class="reveal-title">Nuestra Misión</h2>
+        <p>
+          En BFTech creemos que la tecnología debe ser accesible y transformadora. Nuestro objetivo es ayudar a Startups
+          y Empresas a construir productos digitales que realmente impacten en sus usuarios y negocios.
+        </p>
+        <p>
+          Combinamos estrategia, diseño y desarrollo de software con una mentalidad ágil y orientada al resultado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section id="valores" class="about-values">
+    <h2 class="reveal-title">Nuestros Valores</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Innovación</h3>
+        <p>Buscamos constantemente nuevas formas de resolver problemas con tecnología de vanguardia.</p>
+      </div>
+      <div class="value-card">
+        <h3>Transparencia</h3>
+        <p>Comunicación clara y honesta en cada etapa del proyecto con nuestros clientes.</p>
+      </div>
+      <div class="value-card">
+        <h3>Excelencia</h3>
+        <p>Nos comprometemos con la calidad en cada línea de código y cada decisión de diseño.</p>
+      </div>
+      <div class="value-card">
+        <h3>Colaboración</h3>
+        <p>Trabajamos como equipo con nuestros clientes para lograr objetivos compartidos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="about-team">
+    <h2 class="reveal-title">Nuestro Equipo</h2>
+    <div class="team-grid">
+      <div class="team-content">
+        <div class="team-text">
+          <h3>Quiénes Somos</h3>
+          <p>
+            En BFTech somos un equipo apasionado por la tecnología y la innovación digital. Nos especializamos en crear
+            soluciones personalizadas que transforman ideas en productos digitales de alto impacto.
+          </p>
+          <p>
+            Con una experiencia combinada de varios años, entendemos los desafíos únicos de cada proyecto y nos
+            comprometemos a entregar resultados excepcionales.
+          </p>
+          <p>
+            Nuestro enfoque colaborativo y centrado en el cliente nos permite trabajar como una extensión de tu equipo,
+            asegurando que cada solución no solo cumpla sino que supere tus expectativas.
+          </p>
+          <p>
+            Creemos en la transparencia, la calidad y en construir relaciones a largo plazo basadas en la confianza y el
+            éxito mutuo.
+          </p>
+        </div>
+      </div>
+      <div class="team-images">
+        <div class="team-image-main">
+          <img src="/assets/img/ofi_BFT.webp" alt="Equipo BFTech" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <h2 class="reveal-title">¿Listo para trabajar juntos?</h2>
+    <p>Cuéntanos sobre tu proyecto y descubre cómo podemos ayudarte.</p>
+    <a href="/contacto.html#contactForm" class="btn">Contáctanos</a>
+  </section>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="/scripts/gspa.js"></script>
+  <script src="/scripts/about.js"></script>
+
+  <footer>
     <div class="footerContainer">
       <div>
         <div class="logo">
@@ -212,7 +217,7 @@
         </a>
         <a class="link-display" href="/nosotros.html#mision">Nuestra Misión</a>
         <a class="link-display" href="/nosotros.html#valores">Nuestros Valores</a>
-        <a class="link-display" href="/portfolio.html">Proyectos</a>
+        <a class="link-display" href="/proyectos.html">Proyectos</a>
       </div>
       <div class="footer-links">
         <a href="/contacto.html">
@@ -223,7 +228,7 @@
         <a class="link-display">Madrid, España</a>
       </div>
       <div class="footer-links">
-        <a href="/portfolio.html">
+        <a href="/aviso-legal.html">
           <p>Legal</p>
         </a>
         <a class="link-display" href="/politica-privacidad.html">Política de Privacidad</a>
@@ -238,20 +243,21 @@
 
   </footer>
   <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p><strong>Usamos cookies</strong> para mejorar tu experiencia y analizar el tráfico. Al continuar
-                    navegando aceptas nuestra <a href="/politica-privacidad.html" target="_blank">Política de
-                        Privacidad</a>.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button id="cookie-reject" class="cookie-btn cookie-reject">Rechazar</button>
-                <button id="cookie-accept" class="cookie-btn cookie-accept">Aceptar</button>
-            </div>
-        </div>
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <p><strong>Usamos cookies</strong> para mejorar tu experiencia y analizar el tráfico. Al continuar
+          navegando aceptas nuestra <a href="/politica-privacidad.html" target="_blank">Política de
+            Privacidad</a>.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="cookie-reject" class="cookie-btn cookie-reject">Rechazar</button>
+        <button id="cookie-accept" class="cookie-btn cookie-accept">Aceptar</button>
+      </div>
     </div>
+  </div>
 
-    <script src="/scripts/cookies.js"></script>
-  </body>
+  <script src="/scripts/cookies.js"></script>
+</body>
+
 </html>
