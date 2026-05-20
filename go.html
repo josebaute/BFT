@@ -155,18 +155,20 @@
         function openBrowser() {
             var url = "https://bftech.es"; // tu web real
 
-            // iPhone
+            // iPhone - Abre Safari (navegador por defecto)
             if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-                window.location = "googlechrome://" + url.replace("https://", "");
+                window.location = url;
             }
-            // Android
+            // Android - Abre Chrome
             else if (navigator.userAgent.match(/Android/i)) {
                 window.location = "intent://" + url.replace("https://", "") + "#Intent;scheme=https;package=com.android.chrome;end";
             }
             // fallback
-            setTimeout(function () {
-                window.location = url;
-            }, 2000);
+            else {
+                setTimeout(function () {
+                    window.location = url;
+                }, 2000);
+            }
         }
 
         // Permitir clic en el mensaje para redirigir manualmente
