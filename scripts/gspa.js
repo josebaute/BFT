@@ -8,44 +8,16 @@ gsap.from("#subtitle", {
   ease: "power3.out",
 });
 
-gsap.utils.toArray(".service-card").forEach((card, i) => {
-  gsap.from(card, {
-    scrollTrigger: card,
-    duration: 0.8,
-    y: 40,
-    opacity: 0,
-    delay: i * 0.1,
-    ease: "power2.out",
-    scrollTrigger: {
-      scrub: 1,
-      trigger: card,
-      start: "top 80%",
-    },
-  });
-});
+// Animación para las tarjetas de servicio
+const serviceCards = gsap.utils.toArray(".service-card");
 
-// Animación para el párrafo "Listo para llevar..."
-gsap.from("#reveal-ready", {
-  scrollTrigger: {
-    trigger: "#reveal-ready",
-    start: "top 80%",
-    toggleActions: "play none none reverse",
-  },
-  duration: 0.8,
-  x: -50,
-  opacity: 0,
-  ease: "power2.out",
-});
-
-const processSteps = gsap.utils.toArray(".service-card");
-
-processSteps.forEach((step, i) => {
+serviceCards.forEach((card, i) => {
   // Animación inicial de entrada
-  gsap.from(step, {
+  gsap.from(card, {
     scrollTrigger: {
-      trigger: ".service",
-      start: "top 70%",
-      toggleActions: "play none none reverse",
+      trigger: card,
+      start: "top 90%",
+      toggleActions: "play none none none",
     },
     duration: 0.6,
     y: 30,
@@ -54,12 +26,12 @@ processSteps.forEach((step, i) => {
     ease: "power2.out",
   });
 
-  // Efecto de relleno cascada individual (una por una, al llegar a mitad del viewport)
-  gsap.to(step, {
+  // Efecto de relleno y brillo al pasar (aparece más antes)
+  gsap.to(card, {
     scrollTrigger: {
-      trigger: step,
-      start: "center center",
-      end: "center 40%",
+      trigger: card,
+      start: "top 85%",
+      end: "top 50%",
       scrub: 1,
       markers: false,
     },

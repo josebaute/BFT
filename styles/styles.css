@@ -481,11 +481,21 @@ header.scrolled {
   }
 }
 
-/* De 1200px en adelante: 4 columnas */
-/* Saltamos el 3 directamente */
+/* De 1200px en adelante: Pirámide (2 arriba, 3 abajo) */
 @media (min-width: 1200px) {
   .services {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .service-card:nth-child(1),
+  .service-card:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  .service-card:nth-child(3),
+  .service-card:nth-child(4),
+  .service-card:nth-child(5) {
+    grid-column: span 2;
   }
 }
 /*
