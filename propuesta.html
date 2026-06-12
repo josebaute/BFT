@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BFTech · Propuesta para Zooo Electrónica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #6ee7c7;
+      --green-dark: #4dd4ae;
+      --night: #0f1117;
+      --night-soft: #1a1f2e;
+      --text-muted: #a0a8b8;
+      --text-dim: #6b7280;
+      --red: #c9432d;
+      --emerald: #1a9e75;
+      --surface: #f8f8f6;
+      --card-bg: #ffffff;
+      --card-border: rgba(0,0,0,0.08);
+      --sep: rgba(0,0,0,0.07);
+      --body-text: #1a1a1a;
+      --body-text-2: #555;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface: #111318;
+        --card-bg: #1c2030;
+        --card-border: rgba(255,255,255,0.07);
+        --sep: rgba(255,255,255,0.07);
+        --body-text: #f0f0ee;
+        --body-text-2: #9aa0b0;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--body-text);
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--night);
+      padding: 3rem 1.75rem 2.5rem;
+      border-radius: 0 0 28px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,231,199,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .hero-title span { color: var(--green); }
+    .hero-body {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 340px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.5rem;
+      background: rgba(110,231,199,0.1);
+      border: 0.5px solid rgba(110,231,199,0.3);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 2rem 1.75rem 0.5rem;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card-bg);
+      border: 0.5px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .card-icon {
+      font-size: 20px;
+      margin-top: 1px;
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+    }
+    .card-icon.red { background: rgba(201,67,45,0.1); color: var(--red); }
+    .card-icon.green { background: rgba(26,158,117,0.1); color: var(--emerald); }
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body-text);
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--body-text-2);
+      line-height: 1.55;
+    }
+
+    /* ── ARROW ── */
+    .arrow-divider {
+      text-align: center;
+      padding: 0.5rem 0 0;
+      font-size: 24px;
+      color: var(--green);
+    }
+
+    /* ── METRICS ── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 0.25rem 1.75rem 1.5rem;
+    }
+    .metric {
+      background: var(--card-bg);
+      border: 0.5px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.1rem 1rem;
+      text-align: center;
+    }
+    .metric-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--night);
+      line-height: 1;
+    }
+    @media (prefers-color-scheme: dark) {
+      .metric-num { color: #fff; }
+    }
+    .metric-label {
+      font-size: 12px;
+      color: var(--body-text-2);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* ── STEPS ── */
+    .steps-wrap { padding: 0.25rem 1.75rem 1.75rem; }
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--night);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body-text);
+      margin-bottom: 3px;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--body-text-2);
+      line-height: 1.55;
+    }
+
+    /* ── SEPARATOR ── */
+    .sep { height: 0.5px; background: var(--sep); margin: 0 1.75rem; }
+
+    /* ── CTA ── */
+    .cta-block {
+      margin: 1.75rem 1.75rem 2.5rem;
+      background: var(--night);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .cta-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .cta-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--green);
+      color: var(--night);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .cta-btn:hover { background: var(--green-dark); }
+    .cta-foot {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 0 1.75rem 2.5rem;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .footer a { color: var(--green); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">bftech.es · propuesta exclusiva</div>
+    <h1 class="hero-title">Curro,<br>esto es <span>para ti</span></h1>
+    <p class="hero-body">En 5 minutos te cuento exactamente cómo dejarías de perder tiempo con excels y tendrías Zooo Electrónica bajo control, desde el móvil.</p>
+    <div class="hero-badge">
+      <i class="ti ti-clock" aria-hidden="true"></i>
+      Lectura de 5 minutos
+    </div>
+  </div>
+
+  <!-- DOLOR -->
+  <div class="section">
+    <div class="eyebrow">Lo que pasa ahora</div>
+
+    <div class="card">
+      <div class="card-icon red"><i class="ti ti-table-off" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Excels que nadie entiende</div>
+        <div class="card-desc">Cada reparación en una hoja diferente. Cuando hay prisa, no encuentras nada.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon red"><i class="ti ti-clock-x" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Tiempo perdido en tareas manuales</div>
+        <div class="card-desc">Copiar datos, actualizar precios, buscar el estado de cada reparación. Horas que podrías estar atendiendo a clientes.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon red"><i class="ti ti-eye-closed" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Sin visión real del negocio</div>
+        <div class="card-desc">¿Cuántas reparaciones pendientes? ¿Cuál es tu servicio más rentable? Sin datos claros, no hay respuesta.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow-divider">↓</div>
+
+  <!-- SOLUCIÓN -->
+  <div class="section" style="padding-top: 1.25rem;">
+    <div class="eyebrow">Con BFTech, en cambio</div>
+
+    <div class="card">
+      <div class="card-icon green"><i class="ti ti-device-mobile-check" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Todo en una pantalla, desde el móvil</div>
+        <div class="card-desc">Estado de cada reparación, cliente asignado, fecha de entrada. En tiempo real, sin excels.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon green"><i class="ti ti-bell-ringing" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Avisos automáticos al cliente</div>
+        <div class="card-desc">Cuando el móvil está listo, el cliente recibe un mensaje automático. Tú no haces nada.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon green"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Panel con los números que importan</div>
+        <div class="card-desc">Ingresos del mes, reparaciones pendientes, tiempo medio por servicio. Todo visible de un vistazo.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon green"><i class="ti ti-receipt-2" aria-hidden="true"></i></div>
+      <div>
+        <div class="card-title">Presupuestos en segundos</div>
+        <div class="card-desc">Generas un presupuesto desde el móvil y el cliente lo recibe al momento. Sin imprimir nada.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <div style="padding: 1.75rem 1.75rem 0.5rem;">
+    <div class="eyebrow">Lo que ganas en números</div>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-num">~8h</div>
+      <div class="metric-label">menos a la semana en tareas administrativas</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">0€</div>
+      <div class="metric-label">coste extra en llamadas para avisar al cliente</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">100%</div>
+      <div class="metric-label">de tus reparaciones trazadas y controladas</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">&lt;2sem</div>
+      <div class="metric-label">para tenerlo funcionando desde el primer día</div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- PASOS -->
+  <div style="padding: 1.75rem 1.75rem 0.5rem;">
+    <div class="eyebrow">Cómo lo hacemos</div>
+  </div>
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Quedamos 30 minutos (presencial o videollamada)</div>
+        <div class="step-desc">Me cuentas cómo funciona tu taller ahora mismo. Sin compromiso.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Preparo la solución específica para Zooo</div>
+        <div class="step-desc">No es un software genérico. Lo adapto a cómo trabajáis vosotros.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Lo pones en marcha en menos de 2 semanas</div>
+        <div class="step-desc">Yo me encargo de la configuración y la formación. Tú solo tienes que usarlo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">¿Hablamos 30 minutos?</div>
+    <p class="cta-body">Sin compromiso. Si no ves el valor, no hay nada más que hablar. Pero si lo ves, te ahorras un montón de tiempo.</p>
+    <a href="https://wa.me/34646476662?text=Hola%20Jose,%20soy%20Curro.%20Vamos%20a%20hacerlo!" class="cta-btn">!SÍ QUIERO!</a>
+    <div class="cta-foot">Hecho exclusivamente para Zooo Electrónica</div>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- FOOTER -->
+  <div class="footer" style="margin-top: 1.5rem;">
+    <a href="https://bftech.es">bftech.es</a> · Consultoría tecnológica para negocios
+  </div>
+
+</body>
+</html>
