@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#1D9E75">
+<title>Mesafy — Pedidos por QR</title>
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green:     #1D9E75;
+  --green-lt:  #E1F5EE;
+  --green-dk:  #085041;
+  --coral:     #D85A30;
+  --coral-lt:  #FAECE7;
+  --coral-dk:  #4A1B0C;
+  --amber:     #BA7517;
+  --amber-lt:  #FAEEDA;
+  --amber-dk:  #412402;
+  --bg:        #F8F7F3;
+  --surface:   #FFFFFF;
+  --border:    rgba(0,0,0,0.10);
+  --text:      #1A1A18;
+  --muted:     #6B6B68;
+  --r-sm:      8px;
+  --r-md:      12px;
+  --r-lg:      16px;
+  --r-xl:      24px;
+}
+html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.5; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: 14px; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ── VIEWS ─────────────────────────────────────────────────── */
+.view { display: none; min-height: 100vh; flex-direction: column; }
+.view.active { display: flex; }
+
+/* ── TOPBAR ─────────────────────────────────────────────────── */
+.topbar {
+  background: var(--green);
+  padding: 14px 16px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-left h1 { color: #fff; font-size: 17px; font-weight: 600; }
+.topbar-left p  { color: rgba(255,255,255,0.7); font-size: 12px; margin-top: 1px; }
+.topbar-icon { color: rgba(255,255,255,0.9); font-size: 22px; line-height: 1; }
+.topbar-badge {
+  background: var(--coral); color: #fff;
+  font-size: 11px; font-weight: 700;
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: absolute; top: -4px; right: -4px;
+}
+.topbar-icon-wrap { position: relative; }
+
+/* ── SCROLLABLE BODY ────────────────────────────────────────── */
+.scrollbody { flex: 1; overflow-y: auto; padding: 16px; }
+
+/* ── CARDS ──────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.card-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+
+/* ── PILL BADGES ─────────────────────────────────────────────── */
+.pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600;
+}
+.pill-green  { background: var(--green-lt);  color: var(--green-dk); }
+.pill-coral  { background: var(--coral-lt);  color: var(--coral-dk); }
+.pill-amber  { background: var(--amber-lt);  color: var(--amber-dk); }
+
+/* ── SECTION LABELS ──────────────────────────────────────────── */
+.sec-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.07em;
+  color: var(--muted); text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.sec-label:first-child { margin-top: 0; }
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 18px; border-radius: var(--r-sm);
+  font-size: 14px; font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary   { background: var(--green); color: #fff; }
+.btn-coral     { background: var(--coral); color: #fff; }
+.btn-ghost     { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
+.btn-ghost-sm  { background: transparent; color: var(--muted); border: 1px solid var(--border); padding: 6px 12px; font-size: 12px; border-radius: var(--r-sm); }
+.btn-full      { width: 100%; }
+.btn:disabled  { opacity: 0.4; pointer-events: none; }
+
+/* ── TOAST ───────────────────────────────────────────────────── */
+#toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+  background: #1A1A18; color: #fff;
+  padding: 10px 20px; border-radius: 24px;
+  font-size: 13px; font-weight: 500;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 9999; white-space: nowrap; max-width: 90vw;
+}
+#toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── DIVIDER ─────────────────────────────────────────────────── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+
+/* ─────────────────────────────────────────────────────────────
+   VISTA: LANDING (selector de rol)
+───────────────────────────────────────────────────────────── */
+#view-landing {
+  background: var(--green);
+  align-items: center; justify-content: center;
+  padding: 32px 24px; text-align: center;
+}
+.landing-logo {
+  width: 80px; height: 80px;
+  background: rgba(255,255,255,0.15); border-radius: var(--r-xl);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+}
+.landing-logo svg { width: 44px; height: 44px; fill: #fff; }
+.landing-title { color: #fff; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.landing-sub   { color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 40px; line-height: 1.5; }
+.rol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 340px; }
+.rol-card {
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: var(--r-md);
+  padding: 18px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  cursor: pointer; transition: background 0.2s;
+  color: #fff;
+}
+.rol-card:hover { background: rgba(255,255,255,0.2); }
+.rol-card svg { width: 32px; height: 32px; }
+.rol-card span { font-size: 13px; font-weight: 600; }
+.rol-card small { font-size: 11px; color: rgba(255,255,255,0.65); text-align: center; }
+.landing-note { color: rgba(255,255,255,0.5); font-size: 11px; margin-top: 28px; }
+
+/* ─────────────────────────────────────────────────────────────
+   VISTA: CLIENTE
+───────────────────────────────────────────────────────────── */
+/* Categorías */
+.cat-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 0 16px 12px; margin: 12px -16px 0; scrollbar-width: none; }
+.cat-scroll::-webkit-scrollbar { display: none; }
+.cat-chip {
+  white-space: nowrap; padding: 7px 16px;
+  border-radius: 20px; border: 1.5px solid var(--border);
+  background: var(--surface); font-size: 13px; font-weight: 500;
+  color: var(--muted); transition: all 0.15s; flex-shrink: 0;
+}
+.cat-chip.active { background: var(--coral); border-color: var(--coral); color: #fff; }
+
+/* Items de menú */
+.menu-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 12px;
+}
+.menu-emoji { font-size: 32px; min-width: 44px; text-align: center; }
+.menu-info { flex: 1; min-width: 0; }
+.menu-name { font-size: 14px; font-weight: 600; }
+.menu-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.menu-price { font-size: 14px; font-weight: 700; color: var(--green); margin-top: 4px; }
+.menu-ctrl { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; }
+.qty-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 300; transition: background 0.15s;
+}
+.qty-btn.add { background: var(--green); color: #fff; }
+.qty-btn.sub { background: var(--green-lt); color: var(--green-dk); }
+.qty-num { font-size: 14px; font-weight: 700; min-width: 20px; text-align: center; }
+
+/* Carrito flotante */
+#cart-bar {
+  position: sticky; bottom: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  display: none;
+  align-items: center; gap: 12px;
+}
+.cart-bar-info { flex: 1; }
+.cart-bar-n  { font-size: 13px; font-weight: 600; }
+.cart-bar-t  { font-size: 12px; color: var(--muted); }
+
+/* Detalle carrito */
+#cart-detail { display: none; }
+.cart-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.cart-row:last-child { border-bottom: none; }
+.cart-row-name { flex: 1; }
+.cart-row-qty  { color: var(--muted); min-width: 24px; text-align: center; font-weight: 600; }
+.cart-row-price { min-width: 56px; text-align: right; font-weight: 600; }
+.cart-total-row { display: flex; justify-content: space-between; padding-top: 10px; font-weight: 700; font-size: 15px; }
+
+/* Botón llamar camarero */
+.call-waiter-btn {
+  width: calc(100% - 32px); margin: 0 16px 16px;
+  padding: 14px; border-radius: var(--r-md);
+  background: var(--coral-lt); color: var(--coral-dk);
+  border: 1.5px solid var(--coral);
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: background 0.2s;
+}
+.call-waiter-btn:active { background: var(--coral); color: #fff; }
+
+/* Estado vacío */
+.empty { text-align: center; padding: 48px 24px; color: var(--muted); }
+.empty svg { width: 48px; height: 48px; margin: 0 auto 12px; opacity: 0.3; }
+.empty p { font-size: 14px; }
+
+/* ─────────────────────────────────────────────────────────────
+   VISTA: CAMARERO
+───────────────────────────────────────────────────────────── */
+.mesa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 8px; margin-bottom: 4px; }
+.mesa-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 12px 8px;
+  text-align: center; cursor: pointer;
+  transition: all 0.15s; position: relative;
+}
+.mesa-card.libre   { }
+.mesa-card.cocina  { border-color: var(--amber); }
+.mesa-card.listo   { border-color: var(--green); background: var(--green-lt); }
+.mesa-card.alerta  { border-color: var(--coral); background: var(--coral-lt); }
+.mesa-num  { font-size: 16px; font-weight: 700; }
+.mesa-stat { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.mesa-card.alerta .mesa-stat { color: var(--coral-dk); }
+.mesa-card.listo  .mesa-stat { color: var(--green-dk); }
+.pulse-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--coral);
+  position: absolute; top: 6px; right: 6px;
+  animation: pulse 1.3s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.5); opacity: 0.5; }
+}
+
+.notif-card {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+.notif-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.notif-title { font-size: 13px; font-weight: 600; }
+.notif-time  { font-size: 11px; color: var(--muted); }
+.notif-items { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+.notif-actions { display: flex; gap: 6px; }
+
+/* ─────────────────────────────────────────────────────────────
+   VISTA: COCINA
+───────────────────────────────────────────────────────────── */
+.ticket {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 14px;
+  margin-bottom: 10px;
+}
+.ticket.urgente { border-color: var(--coral); }
+.ticket-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 10px; margin-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.ticket-mesa { font-size: 15px; font-weight: 700; }
+.ticket-mins { font-size: 12px; color: var(--muted); font-weight: 600; }
+.ticket-mins.urg { color: var(--coral); }
+.ticket-line {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 0; font-size: 13px;
+}
+.ticket-line input[type="checkbox"] {
+  width: 16px; height: 16px; accent-color: var(--green);
+  cursor: pointer; flex-shrink: 0;
+}
+.ticket-line .tl-qty  { color: var(--muted); font-weight: 700; min-width: 22px; }
+.ticket-line .tl-name { flex: 1; }
+.ticket-line .tl-done { text-decoration: line-through; color: var(--muted); }
+.ticket-footer { margin-top: 12px; }
+
+/* ─────────────────────────────────────────────────────────────
+   BOTTOMNAV (camarero / cocina)
+───────────────────────────────────────────────────────────── */
+.bottomnav {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  position: sticky; bottom: 0; z-index: 100;
+}
+.bnav-item {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 10px 4px 12px; gap: 3px;
+  color: var(--muted); font-size: 10px; font-weight: 600;
+  position: relative; cursor: pointer;
+}
+.bnav-item.active { color: var(--green); }
+.bnav-item svg { width: 22px; height: 22px; }
+.bnav-badge {
+  position: absolute; top: 6px; right: calc(50% - 18px);
+  background: var(--coral); color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 1px 5px; border-radius: 10px; min-width: 16px; text-align: center;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MODAL
+───────────────────────────────────────────────────────────── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45); z-index: 500;
+  align-items: flex-end; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--surface); width: 100%; max-width: 480px;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  padding: 20px 20px 32px; max-height: 85vh; overflow-y: auto;
+}
+.modal-handle {
+  width: 36px; height: 4px; background: var(--border);
+  border-radius: 2px; margin: 0 auto 16px;
+}
+.modal-title { font-size: 17px; font-weight: 700; margin-bottom: 14px; }
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────────────── */
+@media (min-width: 600px) {
+  #view-cliente .scrollbody,
+  #view-camarero .scrollbody,
+  #view-cocina .scrollbody { max-width: 480px; margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     TOAST
+═══════════════════════════════════════════════════════ -->
+<div id="toast"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     LANDING — selector de rol
+═══════════════════════════════════════════════════════ -->
+<div id="view-landing" class="view active">
+  <div class="landing-logo">
+    <!-- fork-knife icon -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+    </svg>
+  </div>
+  <h1 class="landing-title">Mesafy</h1>
+  <p class="landing-sub">Pedidos por QR para restaurantes,<br>bares y terrazas. Sin app, sin esperas.</p>
+
+  <div class="rol-grid">
+    <div class="rol-card" onclick="goCliente()">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+      <span>Mesa 7</span>
+      <small>Soy el cliente</small>
+    </div>
+    <div class="rol-card" onclick="goCamarero()">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+      <span>Camarero</span>
+      <small>Panel de servicio</small>
+    </div>
+    <div class="rol-card" onclick="goCocina()">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/></svg>
+      <span>Cocina</span>
+      <small>Pantalla de tickets</small>
+    </div>
+    <div class="rol-card" onclick="goAdmin()">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      <span>Admin</span>
+      <small>Gestión del menú</small>
+    </div>
+  </div>
+  <p class="landing-note">Demo MVP · Mesafy 2024</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     VISTA CLIENTE
+═══════════════════════════════════════════════════════ -->
+<div id="view-cliente" class="view">
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Mesa 7</h1>
+      <p id="cli-hora">Escaneado a las —</p>
+    </div>
+    <div class="topbar-icon">🍽️</div>
+  </div>
+
+  <div class="scrollbody" id="cli-scroll">
+    <!-- Categorías -->
+    <div class="cat-scroll" id="cat-scroll"></div>
+
+    <!-- Items -->
+    <div id="menu-list"></div>
+
+    <!-- Carrito desplegado -->
+    <div id="cart-detail">
+      <div class="sec-label">Tu pedido</div>
+      <div class="card">
+        <div id="cart-rows"></div>
+        <hr class="divider">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span id="cart-total-price">0,00 €</span>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px;">
+          <button class="btn btn-ghost btn-full" onclick="toggleCart()">Seguir viendo</button>
+          <button class="btn btn-primary btn-full" onclick="enviarComanda()">Enviar comanda</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrito flotante -->
+  <div id="cart-bar">
+    <span style="font-size:20px;">🛒</span>
+    <div class="cart-bar-info">
+      <div class="cart-bar-n" id="cart-bar-n">0 productos</div>
+      <div class="cart-bar-t" id="cart-bar-t">0,00 €</div>
+    </div>
+    <button class="btn btn-primary" onclick="toggleCart()">Ver pedido</button>
+  </div>
+
+  <!-- Botón llamar camarero -->
+  <button class="call-waiter-btn" onclick="llamarCamarero()">
+    🔔 Llamar al camarero
+  </button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     VISTA CAMARERO
+═══════════════════════════════════════════════════════ -->
+<div id="view-camarero" class="view">
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Panel camarero</h1>
+      <p id="cam-hora">—</p>
+    </div>
+    <div class="topbar-icon-wrap">
+      <span style="font-size:22px;">👨‍🍳</span>
+      <div class="topbar-badge" id="cam-badge" style="display:none">0</div>
+    </div>
+  </div>
+
+  <div class="scrollbody" id="cam-scroll">
+
+    <!-- Sub-nav interno -->
+    <div style="display:flex; gap:8px; margin-bottom:14px;">
+      <button class="btn btn-primary" style="flex:1; font-size:13px;" onclick="showCamTab('mesas')" id="tab-mesas">Mesas</button>
+      <button class="btn btn-ghost" style="flex:1; font-size:13px;" onclick="showCamTab('pedidos')" id="tab-pedidos">Pedidos</button>
+    </div>
+
+    <!-- TAB MESAS -->
+    <div id="cam-mesas">
+      <div class="sec-label">Estado de mesas</div>
+      <div class="mesa-grid" id="mesa-grid"></div>
+    </div>
+
+    <!-- TAB PEDIDOS -->
+    <div id="cam-pedidos" style="display:none">
+      <div class="sec-label">Alertas</div>
+      <div id="alertas-list"></div>
+      <div class="sec-label">Listos para servir</div>
+      <div id="listos-list"></div>
+      <div class="sec-label">En cocina</div>
+      <div id="cocina-list"></div>
+    </div>
+
+  </div>
+
+  <div class="bottomnav">
+    <div class="bnav-item" onclick="goLanding()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+      Inicio
+    </div>
+    <div class="bnav-item active" onclick="goCamarero()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Camarero
+      <div class="bnav-badge" id="cam-bnav-badge" style="display:none">0</div>
+    </div>
+    <div class="bnav-item" onclick="goCocina()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10H2A10 10 0 0 1 12 2z"/><path d="M12 12v10M5 22h14"/></svg>
+      Cocina
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     VISTA COCINA
+═══════════════════════════════════════════════════════ -->
+<div id="view-cocina" class="view">
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Cocina</h1>
+      <p id="coc-pendientes">0 tickets pendientes</p>
+    </div>
+    <div class="topbar-icon">🔥</div>
+  </div>
+
+  <div class="scrollbody">
+    <div id="cocina-tickets"></div>
+    <div id="cocina-empty" class="empty" style="display:none">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+      <p>Todo al día 👨‍🍳<br><small>Los nuevos pedidos aparecerán aquí</small></p>
+    </div>
+  </div>
+
+  <div class="bottomnav">
+    <div class="bnav-item" onclick="goLanding()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+      Inicio
+    </div>
+    <div class="bnav-item" onclick="goCamarero()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Camarero
+    </div>
+    <div class="bnav-item active" onclick="goCocina()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10H2A10 10 0 0 1 12 2z"/><path d="M12 12v10M5 22h14"/></svg>
+      Cocina
+      <div class="bnav-badge" id="coc-bnav-badge" style="display:none">0</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     VISTA ADMIN (gestión de menú)
+═══════════════════════════════════════════════════════ -->
+<div id="view-admin" class="view">
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Admin · Menú</h1>
+      <p>Gestiona platos y categorías</p>
+    </div>
+    <div class="topbar-icon">⚙️</div>
+  </div>
+
+  <div class="scrollbody">
+    <button class="btn btn-primary btn-full" style="margin-bottom:14px" onclick="openAddItem()">+ Añadir plato</button>
+    <div id="admin-list"></div>
+  </div>
+
+  <div class="bottomnav">
+    <div class="bnav-item active" onclick="goLanding()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+      Inicio
+    </div>
+    <div class="bnav-item" onclick="goCamarero()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Camarero
+    </div>
+    <div class="bnav-item" onclick="goCocina()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10H2A10 10 0 0 1 12 2z"/><path d="M12 12v10M5 22h14"/></svg>
+      Cocina
+    </div>
+  </div>
+</div>
+
+<!-- MODAL AÑADIR PLATO -->
+<div class="modal-overlay" id="modal-add">
+  <div class="modal-box">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Añadir plato</div>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div>
+        <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Categoría</label>
+        <select id="add-cat" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);"></select>
+      </div>
+      <div>
+        <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Emoji</label>
+        <input id="add-emoji" type="text" maxlength="2" placeholder="🍕" style="width:80px;padding:10px;border:1px solid var(--border);border-radius:var(--r-sm);font-size:22px;text-align:center;">
+      </div>
+      <div>
+        <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Nombre</label>
+        <input id="add-name" type="text" placeholder="Nombre del plato" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--r-sm);">
+      </div>
+      <div>
+        <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Descripción</label>
+        <input id="add-desc" type="text" placeholder="Breve descripción..." style="width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--r-sm);">
+      </div>
+      <div>
+        <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Precio (€)</label>
+        <input id="add-price" type="number" step="0.5" min="0" placeholder="0.00" style="width:120px;padding:10px;border:1px solid var(--border);border-radius:var(--r-sm);">
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px;">
+        <button class="btn btn-ghost-sm btn-full" onclick="closeModal('modal-add')">Cancelar</button>
+        <button class="btn btn-primary btn-full" onclick="saveItem()">Guardar plato</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPT
+═══════════════════════════════════════════════════════ -->
+<script>
+/* ── ESTADO GLOBAL ─────────────────────────────────────────── */
+const MESA = 7;
+const MESAS_TOTAL = 10;
+
+const DEFAULT_MENU = [
+  { id:1,  cat:"Entrantes",   emoji:"🍅", name:"Pan con tomate",       desc:"Tomate fresco, aceite AOVE",      price:3.5  },
+  { id:2,  cat:"Entrantes",   emoji:"🫕", name:"Croquetas (6 uds.)",   desc:"De jamón ibérico",                price:7.5  },
+  { id:3,  cat:"Entrantes",   emoji:"🥗", name:"Ensalada griega",      desc:"Feta, olivas, pepino",            price:8.5  },
+  { id:4,  cat:"Entrantes",   emoji:"🧀", name:"Burrata",              desc:"Con tomates cherry",              price:9.0  },
+  { id:5,  cat:"Principales", emoji:"🥘", name:"Paella valenciana",    desc:"Para 1 persona",                  price:14.5 },
+  { id:6,  cat:"Principales", emoji:"🐙", name:"Pulpo a la gallega",   desc:"Con pimentón y patata",           price:16.0 },
+  { id:7,  cat:"Principales", emoji:"🍔", name:"Burger mediterránea",  desc:"Queso manchego, alioli",          price:13.0 },
+  { id:8,  cat:"Principales", emoji:"🐟", name:"Lubina a la sal",      desc:"Con verduras de temporada",       price:18.5 },
+  { id:9,  cat:"Postres",     emoji:"🍮", name:"Crema catalana",       desc:"Receta tradicional",              price:5.5  },
+  { id:10, cat:"Postres",     emoji:"🍋", name:"Tarta de limón",       desc:"Con merengue tostado",            price:6.0  },
+  { id:11, cat:"Bebidas",     emoji:"💧", name:"Agua mineral",         desc:"50cl",                            price:2.0  },
+  { id:12, cat:"Bebidas",     emoji:"🥂", name:"Vino blanco copa",     desc:"Albariño",                        price:4.5  },
+  { id:13, cat:"Bebidas",     emoji:"🍺", name:"Cerveza artesana",     desc:"Rubia de barril",                 price:4.0  },
+  { id:14, cat:"Bebidas",     emoji:"🍋", name:"Limonada casera",      desc:"Con hierbabuena",                 price:3.5  },
+];
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem('mesafy_state') || 'null'); } catch(e) { return null; }
+}
+function saveState(s) {
+  localStorage.setItem('mesafy_state', JSON.stringify(s));
+}
+function initState() {
+  let s = loadState();
+  if (!s) {
+    s = {
+      menu: DEFAULT_MENU,
+      nextMenuId: 100,
+      pedidos: [],
+      alertas: [],
+      nextPedidoId: 1,
+    };
+    saveState(s);
+  }
+  // Asegurar campo menu siempre existe
+  if (!s.menu) { s.menu = DEFAULT_MENU; saveState(s); }
+  return s;
+}
+
+let S = initState();
+let cart = {};
+let currentCat = null;
+let camTab = 'mesas';
+let refreshInterval = null;
+
+/* ── UTILS ──────────────────────────────────────────────────── */
+function fmt(n) { return n.toFixed(2).replace('.', ',') + ' €'; }
+function fmtHora(d) {
+  const dd = new Date(d);
+  return dd.toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' });
+}
+function mins(d) { return Math.floor((Date.now() - new Date(d).getTime()) / 60000); }
+
+function toast(msg, ms=2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
+}
+
+function openModal(id)  { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+/* ── NAVEGACIÓN ─────────────────────────────────────────────── */
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  clearInterval(refreshInterval);
+}
+
+function goLanding()  { showView('view-landing'); }
+function goCliente()  { showView('view-cliente');  initCliente(); }
+function goCamarero() { showView('view-camarero'); initCamarero(); refreshInterval = setInterval(initCamarero, 3000); }
+function goCocina()   { showView('view-cocina');   initCocina();   refreshInterval = setInterval(initCocina, 3000); }
+function goAdmin()    { showView('view-admin');     initAdmin(); }
+
+/* ══════════════════════════════════════════════════════════════
+   CLIENTE
+══════════════════════════════════════════════════════════════ */
+function initCliente() {
+  S = initState();
+  const hora = new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' });
+  document.getElementById('cli-hora').textContent = `Escaneado a las ${hora}`;
+  const cats = [...new Set(S.menu.map(i => i.cat))];
+  if (!currentCat || !cats.includes(currentCat)) currentCat = cats[0];
+  renderCats(cats);
+  renderMenu();
+  renderCartBar();
+}
+
+function renderCats(cats) {
+  const el = document.getElementById('cat-scroll');
+  el.innerHTML = cats.map(c =>
+    `<div class="cat-chip${c===currentCat?' active':''}" onclick="setCat('${c}')">${c}</div>`
+  ).join('');
+}
+
+function setCat(c) {
+  currentCat = c;
+  const cats = [...new Set(S.menu.map(i => i.cat))];
+  renderCats(cats);
+  renderMenu();
+  document.getElementById('cart-detail').style.display = 'none';
+}
+
+function renderMenu() {
+  const items = S.menu.filter(i => i.cat === currentCat);
+  const el = document.getElementById('menu-list');
+  if (items.length === 0) { el.innerHTML = '<div class="empty"><p>Sin platos en esta categoría</p></div>'; return; }
+  el.innerHTML = items.map(item => {
+    const q = cart[item.id] || 0;
+    return `<div class="menu-item">
+      <div class="menu-emoji">${item.emoji}</div>
+      <div class="menu-info">
+        <div class="menu-name">${item.name}</div>
+        <div class="menu-desc">${item.desc}</div>
+        <div class="menu-price">${fmt(item.price)}</div>
+      </div>
+      <div class="menu-ctrl">
+        ${q > 0 ? `
+          <button class="qty-btn sub" onclick="changeQty(${item.id},-1)">−</button>
+          <span class="qty-num">${q}</span>
+        ` : ''}
+        <button class="qty-btn add" onclick="changeQty(${item.id},1)">+</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function changeQty(id, delta) {
+  cart[id] = (cart[id] || 0) + delta;
+  if (cart[id] <= 0) delete cart[id];
+  renderMenu();
+  renderCartBar();
+}
+
+function renderCartBar() {
+  const keys = Object.keys(cart).map(Number);
+  const bar = document.getElementById('cart-bar');
+  if (keys.length === 0) { bar.style.display = 'none'; return; }
+  bar.style.display = 'flex';
+  const total = keys.reduce((s, id) => {
+    const item = S.menu.find(i => i.id === id);
+    return s + (item ? item.price * cart[id] : 0);
+  }, 0);
+  const n = keys.reduce((s, id) => s + cart[id], 0);
+  document.getElementById('cart-bar-n').textContent = n === 1 ? '1 producto' : `${n} productos`;
+  document.getElementById('cart-bar-t').textContent = fmt(total);
+}
+
+function toggleCart() {
+  const d = document.getElementById('cart-detail');
+  const keys = Object.keys(cart).map(Number);
+  if (keys.length === 0) { toast('Añade algún plato primero 😊'); return; }
+  const showing = d.style.display !== 'none' && d.style.display !== '';
+  if (showing) { d.style.display = 'none'; return; }
+
+  // Renderizar filas
+  let total = 0;
+  document.getElementById('cart-rows').innerHTML = keys.map(id => {
+    const item = S.menu.find(i => i.id === id);
+    if (!item) return '';
+    const sub = item.price * cart[id];
+    total += sub;
+    return `<div class="cart-row">
+      <span class="cart-row-name">${item.emoji} ${item.name}</span>
+      <span class="cart-row-qty">×${cart[id]}</span>
+      <span class="cart-row-price">${fmt(sub)}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('cart-total-price').textContent = fmt(total);
+  d.style.display = 'block';
+  d.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function enviarComanda() {
+  S = initState();
+  const keys = Object.keys(cart).map(Number);
+  if (keys.length === 0) { toast('El carrito está vacío'); return; }
+  const lineas = keys.map(id => {
+    const item = S.menu.find(i => i.id === id);
+    return { id, name: item.name, emoji: item.emoji, price: item.price, qty: cart[id] };
+  });
+  const pedido = {
+    id: S.nextPedidoId++,
+    mesa: MESA,
+    lineas,
+    hora: new Date().toISOString(),
+    status: 'cocina',
+    checklist: {}
+  };
+  lineas.forEach(l => pedido.checklist[l.id] = false);
+  S.pedidos.push(pedido);
+  saveState(S);
+  cart = {};
+  document.getElementById('cart-detail').style.display = 'none';
+  renderCartBar();
+  renderMenu();
+  toast('¡Comanda enviada! Tiempo estimado: 15 min 🍽️');
+}
+
+function llamarCamarero() {
+  S = initState();
+  // Evitar duplicar alertas recientes (< 30s)
+  const reciente = S.alertas.find(a => a.mesa === MESA && (Date.now() - new Date(a.hora).getTime()) < 30000);
+  if (reciente) { toast('Ya hemos avisado al camarero 🔔'); return; }
+  S.alertas.push({ id: S.nextPedidoId++, mesa: MESA, hora: new Date().toISOString() });
+  saveState(S);
+  toast('Camarero avisado, viene enseguida 🔔');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CAMARERO
+══════════════════════════════════════════════════════════════ */
+function initCamarero() {
+  S = initState();
+  const hora = new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit' });
+  document.getElementById('cam-hora').textContent = hora;
+
+  const nAlertas = S.alertas.length;
+  const nListos  = S.pedidos.filter(p => p.status === 'listo').length;
+  const total    = nAlertas + nListos;
+  ['cam-badge','cam-bnav-badge'].forEach(id => {
+    const el = document.getElementById(id);
+    el.style.display = total ? 'flex' : 'none';
+    el.textContent = total;
+  });
+
+  renderMesaGrid();
+  renderPedidosTabs();
+}
+
+function showCamTab(tab) {
+  camTab = tab;
+  document.getElementById('cam-mesas').style.display  = tab === 'mesas'   ? 'block' : 'none';
+  document.getElementById('cam-pedidos').style.display = tab === 'pedidos' ? 'block' : 'none';
+  document.getElementById('tab-mesas').className   = tab === 'mesas'   ? 'btn btn-primary' : 'btn btn-ghost';
+  document.getElementById('tab-pedidos').className = tab === 'pedidos' ? 'btn btn-primary' : 'btn btn-ghost';
+  document.getElementById('tab-mesas').style.flex   = '1'; document.getElementById('tab-mesas').style.fontSize = '13px';
+  document.getElementById('tab-pedidos').style.flex = '1'; document.getElementById('tab-pedidos').style.fontSize = '13px';
+}
+
+function renderMesaGrid() {
+  const el = document.getElementById('mesa-grid');
+  el.innerHTML = Array.from({length: MESAS_TOTAL}, (_, i) => {
+    const m = i + 1;
+    const alerta  = S.alertas.some(a => a.mesa === m);
+    const listo   = S.pedidos.some(p => p.mesa === m && p.status === 'listo');
+    const cocina  = S.pedidos.some(p => p.mesa === m && p.status === 'cocina');
+    let cls = 'libre', stat = 'Libre';
+    if (alerta) { cls = 'alerta'; stat = 'Llama'; }
+    else if (listo) { cls = 'listo'; stat = 'Listo ✓'; }
+    else if (cocina) { cls = 'cocina'; stat = 'Cocina'; }
+    return `<div class="mesa-card ${cls}">
+      ${alerta ? '<div class="pulse-dot"></div>' : ''}
+      <div class="mesa-num">Mesa ${m}</div>
+      <div class="mesa-stat">${stat}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderPedidosTabs() {
+  // Alertas
+  const al = document.getElementById('alertas-list');
+  if (S.alertas.length === 0) {
+    al.innerHTML = '<div style="font-size:13px;color:var(--muted);padding:4px 0 12px">Sin alertas activas ✓</div>';
+  } else {
+    al.innerHTML = S.alertas.map(a => `
+      <div class="notif-card" style="border-color:var(--coral);">
+        <div class="notif-head">
+          <span class="notif-title" style="color:var(--coral);">🔔 Mesa ${a.mesa} llama al camarero</span>
+          <span class="notif-time">${fmtHora(a.hora)}</span>
+        </div>
+        <div class="notif-actions">
+          <button class="btn-ghost-sm" onclick="resolverAlerta(${a.id})">✓ Atendido</button>
+        </div>
+      </div>`).join('');
+  }
+
+  // Listos
+  const ll = document.getElementById('listos-list');
+  const listos = S.pedidos.filter(p => p.status === 'listo');
+  if (listos.length === 0) {
+    ll.innerHTML = '<div style="font-size:13px;color:var(--muted);padding:4px 0 12px">Ningún pedido listo aún</div>';
+  } else {
+    ll.innerHTML = listos.map(p => `
+      <div class="notif-card" style="border-color:var(--green);">
+        <div class="notif-head">
+          <span class="notif-title" style="color:var(--green-dk);">✅ Mesa ${p.mesa} — listo para servir</span>
+          <span class="notif-time">${fmtHora(p.hora)}</span>
+        </div>
+        <div class="notif-items">${p.lineas.map(l=>`${l.emoji} ${l.qty}× ${l.name}`).join(' · ')}</div>
+        <div class="notif-actions">
+          <button class="btn-ghost-sm" style="border-color:var(--green);color:var(--green-dk)" onclick="servirPedido(${p.id})">✓ Servido</button>
+        </div>
+      </div>`).join('');
+  }
+
+  // En cocina
+  const cl = document.getElementById('cocina-list');
+  const enCocina = S.pedidos.filter(p => p.status === 'cocina');
+  if (enCocina.length === 0) {
+    cl.innerHTML = '<div style="font-size:13px;color:var(--muted);padding:4px 0 12px">Sin pedidos en cocina</div>';
+  } else {
+    cl.innerHTML = enCocina.map(p => `
+      <div class="notif-card">
+        <div class="notif-head">
+          <span class="notif-title">Mesa ${p.mesa}</span>
+          <span class="notif-time">${mins(p.hora)} min · ${fmtHora(p.hora)}</span>
+        </div>
+        <div class="notif-items">${p.lineas.map(l=>`${l.emoji} ${l.qty}× ${l.name}`).join(' · ')}</div>
+      </div>`).join('');
+  }
+}
+
+function resolverAlerta(id) {
+  S = initState();
+  S.alertas = S.alertas.filter(a => a.id !== id);
+  saveState(S);
+  initCamarero();
+  toast('Alerta resuelta ✓');
+}
+
+function servirPedido(id) {
+  S = initState();
+  const p = S.pedidos.find(p => p.id === id);
+  if (p) p.status = 'servido';
+  saveState(S);
+  initCamarero();
+  toast('Pedido servido ✓');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   COCINA
+══════════════════════════════════════════════════════════════ */
+function initCocina() {
+  S = initState();
+  const enCocina = S.pedidos.filter(p => p.status === 'cocina');
+  const n = enCocina.length;
+  document.getElementById('coc-pendientes').textContent = n === 0 ? 'Todo al día ✓' : `${n} ticket${n>1?'s':''} pendiente${n>1?'s':''}`;
+
+  const badge = document.getElementById('coc-bnav-badge');
+  badge.style.display = n ? 'flex' : 'none';
+  badge.textContent = n;
+
+  const el = document.getElementById('cocina-tickets');
+  const emp = document.getElementById('cocina-empty');
+  if (n === 0) { el.innerHTML = ''; emp.style.display = 'block'; return; }
+  emp.style.display = 'none';
+
+  el.innerHTML = enCocina.map(p => {
+    const m = mins(p.hora);
+    const urg = m >= 10;
+    const todoListo = p.lineas.every(l => p.checklist[l.id]);
+    return `<div class="ticket${urg?' urgente':''}">
+      <div class="ticket-head">
+        <span class="ticket-mesa">Mesa ${p.mesa}</span>
+        <span class="ticket-mins${urg?' urg':''}">${m} min${urg?' ⚠️':''}</span>
+      </div>
+      ${p.lineas.map(l => `
+        <div class="ticket-line">
+          <input type="checkbox" ${p.checklist[l.id]?'checked':''} onchange="toggleLinea(${p.id},${l.id},this.checked)" aria-label="${l.name}">
+          <span class="tl-qty">${l.qty}×</span>
+          <span class="tl-name${p.checklist[l.id]?' tl-done':''}">${l.emoji} ${l.name}</span>
+        </div>`).join('')}
+      <div class="ticket-footer">
+        <button class="btn btn-primary btn-full" onclick="marcarListo(${p.id})" ${todoListo?'':'disabled'}>
+          ✓ Marcar listo
+        </button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleLinea(pedidoId, lineaId, val) {
+  S = initState();
+  const p = S.pedidos.find(p => p.id === pedidoId);
+  if (p) { p.checklist[lineaId] = val; saveState(S); initCocina(); }
+}
+
+function marcarListo(pedidoId) {
+  S = initState();
+  const p = S.pedidos.find(p => p.id === pedidoId);
+  if (p) { p.status = 'listo'; saveState(S); }
+  initCocina();
+  toast('¡Pedido listo! Camarero avisado 🟢');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ADMIN — gestión de menú
+══════════════════════════════════════════════════════════════ */
+function initAdmin() {
+  S = initState();
+  const cats = [...new Set(S.menu.map(i => i.cat))];
+  // Llenar select
+  const sel = document.getElementById('add-cat');
+  sel.innerHTML = cats.map(c => `<option value="${c}">${c}</option>`).join('') +
+    `<option value="__nueva__">+ Nueva categoría...</option>`;
+
+  const el = document.getElementById('admin-list');
+  el.innerHTML = cats.map(cat => {
+    const items = S.menu.filter(i => i.cat === cat);
+    return `<div class="sec-label">${cat}</div>` +
+      items.map(item => `
+        <div class="notif-card" style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:24px">${item.emoji}</span>
+          <div style="flex:1;">
+            <div style="font-size:14px;font-weight:600">${item.name}</div>
+            <div style="font-size:12px;color:var(--muted)">${item.desc} · ${fmt(item.price)}</div>
+          </div>
+          <button class="btn-ghost-sm" style="color:var(--coral);border-color:var(--coral)" onclick="deleteItem(${item.id})">🗑</button>
+        </div>`).join('');
+  }).join('');
+}
+
+function openAddItem() {
+  initAdmin();
+  document.getElementById('add-name').value = '';
+  document.getElementById('add-desc').value = '';
+  document.getElementById('add-price').value = '';
+  document.getElementById('add-emoji').value = '';
+  openModal('modal-add');
+}
+
+function saveItem() {
+  const catSel = document.getElementById('add-cat').value;
+  let cat = catSel;
+  if (catSel === '__nueva__') {
+    cat = prompt('Nombre de la nueva categoría:');
+    if (!cat || !cat.trim()) return;
+    cat = cat.trim();
+  }
+  const name  = document.getElementById('add-name').value.trim();
+  const desc  = document.getElementById('add-desc').value.trim();
+  const price = parseFloat(document.getElementById('add-price').value);
+  const emoji = document.getElementById('add-emoji').value.trim() || '🍽️';
+  if (!name) { toast('Escribe un nombre para el plato'); return; }
+  if (isNaN(price) || price <= 0) { toast('Escribe un precio válido'); return; }
+  S = initState();
+  S.menu.push({ id: S.nextMenuId++, cat, emoji, name, desc, price });
+  saveState(S);
+  closeModal('modal-add');
+  initAdmin();
+  toast(`"${name}" añadido al menú ✓`);
+}
+
+function deleteItem(id) {
+  if (!confirm('¿Eliminar este plato del menú?')) return;
+  S = initState();
+  S.menu = S.menu.filter(i => i.id !== id);
+  saveState(S);
+  initAdmin();
+  toast('Plato eliminado');
+}
+
+/* ── SYNC VIA STORAGE EVENTS (otras pestañas) ──────────────── */
+window.addEventListener('storage', (e) => {
+  if (e.key !== 'mesafy_state') return;
+  S = initState();
+  const active = document.querySelector('.view.active');
+  if (!active) return;
+  if (active.id === 'view-camarero') initCamarero();
+  if (active.id === 'view-cocina')   initCocina();
+});
+
+/* ── CERRAR MODAL AL TOCAR FUERA ───────────────────────────── */
+document.querySelectorAll('.modal-overlay').forEach(mo => {
+  mo.addEventListener('click', e => { if (e.target === mo) mo.classList.remove('open'); });
+});
+</script>
+</body>
+</html>
