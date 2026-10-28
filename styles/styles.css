@@ -292,6 +292,12 @@ header.scrolled {
   margin-top: 15px;
   color: #929292;
 }
+
+.hero .hero-secondary {
+  margin-top: 15px;
+  font-size: 1.15rem;
+  color: #929292;
+}
 /*
 .floating-img {
     display: block;
@@ -375,6 +381,10 @@ header.scrolled {
 
   .hero p {
     font-size: 1.5rem;
+  }
+
+  .hero .hero-secondary {
+    font-size: 1rem;
   }
   .scroll-down span {
     display: none; /* ocultamos el punto animado */
@@ -557,6 +567,93 @@ header.scrolled {
 .service-card img {
   width: 40px;
   height: auto;
+}
+
+.work-options {
+  padding: 80px 10%;
+}
+
+.work-options-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.work-options-container > h2 {
+  margin-bottom: 48px;
+}
+
+.work-options-title {
+  font-family: "GothamBold", sans-serif;
+  text-align: center;
+  color: #ffd642;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.work-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.work-option-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-option-card h3 {
+  margin: 0 0 16px;
+}
+
+.work-option-featured {
+  border-color: rgba(255, 214, 66, 0.75);
+  background: linear-gradient(145deg, rgba(255, 214, 66, 0.1), rgb(23, 23, 23) 55%);
+}
+
+.work-option-badge {
+  align-self: flex-start;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #ffd642;
+  color: #111;
+  font-family: "GothamBold", sans-serif;
+  font-size: 0.75rem;
+}
+
+.work-option-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 20px;
+  color: #ffd642;
+  font-family: "GothamBook", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.work-option-link:hover {
+  color: #fff;
+}
+
+.work-options-cta {
+  margin-top: 42px;
+  text-align: center;
+}
+
+.work-options-cta .btn {
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  .work-options {
+    padding: 60px 6%;
+  }
+
+  .work-options-container > h2 {
+    margin-bottom: 32px;
+  }
 }
 
 .reveal-title {
@@ -1532,6 +1629,42 @@ footer p {
   font-weight: bold;
 }
 
+.team-service-section {
+  scroll-margin-top: 100px;
+}
+
+.team-service-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid rgba(255, 214, 66, 0.35);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.team-service-info h2 {
+  color: #ffd642;
+}
+
+.team-service-info h3 {
+  margin: 28px 0 16px;
+  color: #fff;
+  font-family: "GothamBold", sans-serif;
+  font-size: 1.1rem;
+}
+
+.team-service-info .service-features {
+  margin-bottom: 20px;
+}
+
+.team-service-info .service-features li {
+  line-height: 1.5;
+}
+
+.team-service-info .btn {
+  display: inline-block;
+}
+
 /* Process Section */
 .services-process {
   padding: 100px 10%;
@@ -1673,6 +1806,10 @@ footer p {
 
   .service-info p {
     font-size: 0.95rem;
+  }
+
+  .team-service-info {
+    padding: 28px 22px;
   }
 
   .service-features {
