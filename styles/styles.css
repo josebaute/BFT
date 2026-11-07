@@ -3480,3 +3480,332 @@ footer {
     font-size: 0.9rem;
   }
 }
+
+.subscription-section {
+  padding: 88px 6%;
+}
+
+.subscription-container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.subscription-header {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.subscription-eyebrow {
+  margin-bottom: 12px;
+  color: #ffd642;
+  font-family: "GothamBold", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.subscription-header h2,
+.subscription-cta h2 {
+  color: #ffd642;
+  font-family: "GothamBold", sans-serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.25;
+}
+
+.subscription-header > p:last-child {
+  margin-top: 16px;
+  color: #d0d0d0;
+  line-height: 1.6;
+}
+
+.subscription-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.subscription-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgb(23, 23, 23);
+}
+
+.subscription-card-featured {
+  border: 2px solid #ffd642;
+  background: linear-gradient(145deg, rgba(255, 214, 66, 0.12), rgb(23, 23, 23) 58%);
+}
+
+.subscription-badge {
+  align-self: flex-start;
+  margin: -8px 0 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #ffd642;
+  color: #111;
+  font-family: "GothamBold", sans-serif;
+  font-size: 0.75rem;
+}
+
+.subscription-card h3 {
+  color: #fff;
+  font-family: "GothamBold", sans-serif;
+  font-size: 1.35rem;
+}
+
+.subscription-description {
+  min-height: 48px;
+  margin-top: 10px;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+.subscription-price {
+  margin: 24px 0;
+  color: #d0d0d0;
+}
+
+.subscription-price span {
+  color: #ffd642;
+  font-family: "GothamBold", sans-serif;
+  font-size: 2.25rem;
+}
+
+.subscription-features {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.subscription-features li {
+  position: relative;
+  padding-left: 22px;
+  color: #e0e0e0;
+  line-height: 1.45;
+}
+
+.subscription-features li::before {
+  position: absolute;
+  left: 0;
+  color: #ffd642;
+  content: "✓";
+}
+
+.subscription-button {
+  display: block;
+  margin-top: auto;
+  padding: 12px 18px;
+  border: 1px solid #ffd642;
+  border-radius: 6px;
+  background: transparent;
+  color: #ffd642;
+  cursor: pointer;
+  font-family: "GothamBold", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.subscription-button:hover,
+.subscription-button:focus-visible {
+  background: #ffd642;
+  color: #111;
+}
+
+dialog.subscription-dialog {
+  width: min(480px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 30px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 214, 66, 0.55);
+  border-radius: 14px;
+  background: #191919;
+  color: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+dialog.subscription-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(4px);
+}
+
+.subscription-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.subscription-dialog-header .subscription-eyebrow {
+  margin-bottom: 8px;
+}
+
+.subscription-dialog-header h2 {
+  color: #ffd642;
+  font-family: "GothamBold", sans-serif;
+  font-size: 1.6rem;
+}
+
+.subscription-dialog-close {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.subscription-dialog-description {
+  margin-top: 14px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.subscription-dialog-plan {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: rgba(255, 214, 66, 0.1);
+  color: #ffd642;
+  font-family: "GothamBold", sans-serif;
+}
+
+.subscription-dialog-fields {
+  display: grid;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.subscription-dialog-fields label {
+  color: #e8e8e8;
+  font-size: 0.9rem;
+}
+
+.subscription-dialog-fields input {
+  width: 100%;
+  min-height: 46px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 6px;
+  outline: none;
+  background: #101010;
+  color: #fff;
+  font: inherit;
+}
+
+.subscription-dialog-fields input:focus {
+  border-color: #ffd642;
+  box-shadow: 0 0 0 2px rgba(255, 214, 66, 0.18);
+}
+
+.subscription-dialog-submit {
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px 20px;
+  border: 1px solid #ffd642;
+  border-radius: 6px;
+  background: #ffd642;
+  color: #111;
+  cursor: pointer;
+  font-family: "GothamBold", sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.subscription-dialog-submit:hover:not(:disabled) {
+  background: transparent;
+  color: #ffd642;
+}
+
+.subscription-dialog-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.subscription-form-status {
+  margin-top: 16px;
+  color: #b7efc5;
+  line-height: 1.5;
+}
+
+.subscription-form-status.is-error {
+  color: #ff9a9a;
+}
+
+.subscription-cta {
+  margin-top: 56px;
+  padding: 40px 24px;
+  border: 1px solid rgba(255, 214, 66, 0.45);
+  border-radius: 12px;
+  background: linear-gradient(100deg, rgba(255, 214, 66, 0.12), rgba(23, 23, 23, 0.85));
+  text-align: center;
+}
+
+.subscription-cta h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.subscription-cta a {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 13px 22px;
+  border: 1px solid #ffd642;
+  border-radius: 6px;
+  background: #ffd642;
+  color: #111;
+  font-family: "GothamBold", sans-serif;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.subscription-cta a:hover,
+.subscription-cta a:focus-visible {
+  background: transparent;
+  color: #ffd642;
+}
+
+@media screen and (max-width: 900px) {
+  .subscription-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .subscription-section {
+    padding: 64px 6%;
+  }
+
+  .subscription-header {
+    margin-bottom: 32px;
+  }
+
+  .subscription-card {
+    padding: 26px 22px;
+  }
+
+  .subscription-description {
+    min-height: 0;
+  }
+
+  .subscription-cta {
+    margin-top: 36px;
+    padding: 32px 20px;
+  }
+}
