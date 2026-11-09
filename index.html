@@ -258,7 +258,7 @@
             <li>Formación para que tu equipo sí lo use</li>
             <li>6h/mes</li>
           </ul>
-          <button class="subscription-button" type="button" data-plan="Tech Advisor" data-price="350€"
+          <button class="subscription-button" type="button" data-plan="Tech Advisor" data-price="400€"
             aria-label="Seleccionar Plan Tech Advisor">Seleccionar Plan</button>
         </article>
 
@@ -276,6 +276,19 @@
           </ul>
           <button class="subscription-button" type="button" data-plan="CTO Externo" data-price="800€"
             aria-label="Seleccionar Plan CTO Externo">Seleccionar Plan</button>
+        </article>
+
+        <article class="subscription-card subscription-card-custom">
+          <h3>Plan a medida</h3>
+          <p class="subscription-description">Una suscripción diseñada alrededor de tu empresa, tus prioridades y tu presupuesto.</p>
+          <p class="subscription-price subscription-price-custom"><span>A medida</span></p>
+          <ul class="subscription-features">
+            <li>Servicios adaptados a tus necesidades</li>
+            <li>Horas y prioridades acordadas contigo</li>
+            <li>Una propuesta clara, sin paquetes que no necesitas</li>
+          </ul>
+          <button class="subscription-button" type="button" data-plan="Suscripción a medida" data-price="A medida"
+            aria-label="Diseñar una suscripción a medida">Diseñar mi plan</button>
         </article>
       </div>
 
@@ -308,6 +321,10 @@
           <input id="subscription-name" name="name" type="text" autocomplete="name" required />
           <label for="subscription-email">Correo electrónico</label>
           <input id="subscription-email" name="email" type="email" autocomplete="email" required />
+          <label for="subscription-company">Empresa (opcional)</label>
+          <input id="subscription-company" name="company" type="text" autocomplete="organization" />
+          <label for="subscription-needs" data-subscription-needs-label>¿Qué necesita tu empresa? (opcional)</label>
+          <textarea id="subscription-needs" name="needs" rows="4"></textarea>
         </div>
         <p class="subscription-form-status" role="status" aria-live="polite" hidden></p>
         <button class="subscription-dialog-submit" type="submit">

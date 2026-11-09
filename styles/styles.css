@@ -3513,7 +3513,8 @@ footer {
   line-height: 1.25;
 }
 
-.subscription-header > p:last-child {
+.subscription-header > p:last-child,
+.subscription-header > .subscription-overview {
   margin-top: 16px;
   color: #d0d0d0;
   line-height: 1.6;
@@ -3521,7 +3522,7 @@ footer {
 
 .subscription-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
   gap: 24px;
 }
@@ -3538,6 +3539,11 @@ footer {
 .subscription-card-featured {
   border: 2px solid #ffd642;
   background: linear-gradient(145deg, rgba(255, 214, 66, 0.12), rgb(23, 23, 23) 58%);
+}
+
+.subscription-card-custom {
+  border-color: rgba(255, 214, 66, 0.4);
+  background: linear-gradient(145deg, rgba(255, 214, 66, 0.06), rgb(23, 23, 23) 58%);
 }
 
 .subscription-badge {
@@ -3573,6 +3579,10 @@ footer {
   color: #ffd642;
   font-family: "GothamBold", sans-serif;
   font-size: 2.25rem;
+}
+
+.subscription-price-custom span {
+  font-size: 1.65rem;
 }
 
 .subscription-features {
@@ -3695,9 +3705,9 @@ dialog.subscription-dialog::backdrop {
   font-size: 0.9rem;
 }
 
-.subscription-dialog-fields input {
+.subscription-dialog-fields input,
+.subscription-dialog-fields textarea {
   width: 100%;
-  min-height: 46px;
   margin-bottom: 8px;
   padding: 10px 12px;
   border: 1px solid rgba(255, 255, 255, 0.24);
@@ -3708,7 +3718,17 @@ dialog.subscription-dialog::backdrop {
   font: inherit;
 }
 
-.subscription-dialog-fields input:focus {
+.subscription-dialog-fields input {
+  min-height: 46px;
+}
+
+.subscription-dialog-fields textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.subscription-dialog-fields input:focus,
+.subscription-dialog-fields textarea:focus {
   border-color: #ffd642;
   box-shadow: 0 0 0 2px rgba(255, 214, 66, 0.18);
 }
@@ -3779,10 +3799,10 @@ dialog.subscription-dialog::backdrop {
   color: #ffd642;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
   .subscription-grid {
-    grid-template-columns: 1fr;
-    max-width: 560px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
     margin: 0 auto;
   }
 }
@@ -3798,6 +3818,11 @@ dialog.subscription-dialog::backdrop {
 
   .subscription-card {
     padding: 26px 22px;
+  }
+
+  .subscription-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
   }
 
   .subscription-description {

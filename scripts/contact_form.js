@@ -4,40 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitText = document.getElementById('submit-text');
   const submitBtn = document.getElementById('submit-btn');
 
-  if (!form) return; // Salir si el formulario no existe
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Evita que la página se recargue
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Evita que la página se recargue
-    
-    // Cambiamos el estado del botón
-    submitText.innerText = "Enviando...";
-    submitBtn.disabled = true;
+      // Cambiamos el estado del botón
+      submitText.innerText = "Enviando...";
+      submitBtn.disabled = true;
 
-    const formData = new FormData(form);
+      const formData = new FormData(form);
 
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset(); // Limpia los campos
+          successMessage.classList.remove('hidden'); // Muestra mensaje de éxito
+          submitBtn.classList.add('hidden'); // Oculta el botón
+        } else {
+          alert("Hubo un error al enviar. Por favor intenta de nuevo.");
         }
-      });
-
-      if (response.ok) {
-        form.reset(); // Limpia los campos
-        successMessage.classList.remove('hidden'); // Muestra mensaje de éxito
-        submitBtn.classList.add('hidden'); // Oculta el botón
-      } else {
-        alert("Hubo un error al enviar. Por favor intenta de nuevo.");
+      } catch (error) {
+        alert("Error de conexión. Inténtalo más tarde.");
+      } finally {
+        submitText.innerText = "Enviar Mensaje";
+        submitBtn.disabled = false;
       }
-    } catch (error) {
-      alert("Error de conexión. Inténtalo más tarde.");
-    } finally {
-      submitText.innerText = "Enviar Mensaje";
-      submitBtn.disabled = false;
-    }
-  });
+    });
+  }
 
   const planDialog = document.getElementById('subscription-dialog');
   const planForm = document.getElementById('subscription-form');
@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const planInput = document.getElementById('subscription-plan');
   const planPriceInput = document.getElementById('subscription-price');
+  const planNeedsInput = document.getElementById('subscription-needs');
+  const planNeedsLabel = planDialog.querySelector('[data-subscription-needs-label]');
   const planSummary = planDialog.querySelector('[data-plan-summary]');
   const planStatus = planDialog.querySelector('.subscription-form-status');
   const planSubmit = planForm.querySelector('button[type="submit"]');
@@ -63,7 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
       planSubmitText.textContent = 'Enviar solicitud';
       planInput.value = plan;
       planPriceInput.value = price;
-      planSummary.textContent = `Plan seleccionado: ${plan} — ${price}/mes`;
+      const isCustomPlan = plan === 'Suscripción a medida';
+      planNeedsInput.required = isCustomPlan;
+      planNeedsLabel.textContent = isCustomPlan
+        ? '¿Qué necesita tu empresa? *'
+        : '¿Qué necesita tu empresa? (opcional)';
+      planSummary.textContent = isCustomPlan
+        ? `Plan seleccionado: ${plan} — presupuesto personalizado`
+        : `Plan seleccionado: ${plan} — ${price}/mes`;
       planDialog.showModal();
       document.getElementById('subscription-name').focus();
     });
@@ -79,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     planStatus.textContent = '';
     planSubmit.disabled = false;
     planSubmitText.textContent = 'Enviar solicitud';
+    planNeedsInput.required = false;
+    planNeedsLabel.textContent = '¿Qué necesita tu empresa? (opcional)';
   });
 
   planForm.addEventListener('submit', async (e) => {

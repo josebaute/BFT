@@ -37,6 +37,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/styles.css" />
     <script src="/scripts/cookies.js"></script>
+    <script src="/scripts/contact_form.js"></script>
   </head>
 
 <body>
@@ -194,27 +195,122 @@
     </div>
   </section>
 
-  <section id="equipo-tech" class="services-section team-service-section" aria-labelledby="equipo-tech-title">
-    <div class="services-container">
-      <div class="service-info team-service-info">
+  <section id="equipo-tech" class="subscription-section team-subscription-section"
+    aria-labelledby="equipo-tech-title">
+    <div class="subscription-container">
+      <div class="subscription-header">
+        <p class="subscription-eyebrow">Acompañamiento tecnológico continuo</p>
         <h2 class="reveal-title" id="equipo-tech-title">Tu equipo tecnológico, sin montar un departamento</h2>
-        <p>Nos integramos en tu empresa como tu equipo tech: desarrollamos, mantenemos, automatizamos y te asesoramos en cada decisión técnica. Un único socio, con continuidad y sin costes de contratación.</p>
+        <p class="subscription-overview">Nos integramos en tu empresa como tu equipo tech: desarrollamos, mantenemos,
+          automatizamos y te asesoramos en cada decisión técnica. Un único socio, con continuidad y sin costes de
+          contratación.</p>
+        <p class="subscription-plans-intro">Elige el plan mensual que mejor encaja con las necesidades de tu empresa.</p>
+      </div>
 
-        <h3>Qué incluye</h3>
-        <ul class="service-features">
-          <li>Desarrollo y evolución de tu producto o software</li>
-          <li>Mantenimiento, soporte y monitorización</li>
-          <li>IA y automatización de procesos</li>
-          <li>Infraestructura y seguridad</li>
-          <li>Dirección técnica (CTO fraccional) en decisiones y proveedores</li>
-          <li>Informes y reuniones periódicas de seguimiento</li>
-        </ul>
+      <div class="subscription-grid">
+        <article class="subscription-card">
+          <h3>Soporte IT</h3>
+          <p class="subscription-description">Que nada se rompa. Mantenemos tu web y tus correos funcionando para que tú
+            solo te preocupes de facturar.</p>
+          <p class="subscription-price"><span>150€</span> /mes</p>
+          <ul class="subscription-features">
+            <li>Prevención de caídas (Web y sistemas)</li>
+            <li>Backups</li>
+            <li>Gestión de dominios</li>
+            <li>Resolución de incidencias</li>
+            <li>2h/mes</li>
+          </ul>
+          <button class="subscription-button" type="button" data-plan="Soporte IT" data-price="150€"
+            aria-label="Seleccionar Plan Soporte IT">Seleccionar Plan</button>
+        </article>
 
-        <h3>Cómo se contrata</h3>
-        <p>Cuota mensual o bolsa de horas, adaptada a tu volumen de trabajo. Sin permanencias largas.</p>
-        <a class="btn" href="/contacto.html?interes=equipo-tech#contactForm" aria-label="Solicitar una propuesta para el equipo tech externo">Solicitar una propuesta →</a>
+        <article class="subscription-card subscription-card-featured">
+          <span class="subscription-badge">Más popular</span>
+          <h3>Tech Advisor</h3>
+          <p class="subscription-description">Deja de perder dinero en software que no usas. Auditamos tu empresa y
+            aplicamos las herramientas que realmente te ahorra horas.</p>
+          <p class="subscription-price"><span>400€</span> /mes</p>
+          <ul class="subscription-features">
+            <li>Todo lo del Plan 1</li>
+            <li>Auditoría de cuellos de botella</li>
+            <li>Filtramos las mejores herramientas de tech e IA</li>
+            <li>Formación para que tu equipo sí lo use</li>
+            <li>6h/mes</li>
+          </ul>
+          <button class="subscription-button" type="button" data-plan="Tech Advisor" data-price="400€"
+            aria-label="Seleccionar Plan Tech Advisor">Seleccionar Plan</button>
+        </article>
+
+        <article class="subscription-card">
+          <h3>CTO Externo</h3>
+          <p class="subscription-description">Tu departamento informático al completo, delegando toda la tecnología sin
+            pagar sueldos fijos ni seguros sociales.</p>
+          <p class="subscription-price"><span>800€</span> /mes</p>
+          <ul class="subscription-features">
+            <li>Todo lo del Plan 2</li>
+            <li>Implantación técnica completa</li>
+            <li>Automatización de tareas manuales (cero Excel)</li>
+            <li>15h/mes</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <button class="subscription-button" type="button" data-plan="CTO Externo" data-price="800€"
+            aria-label="Seleccionar Plan CTO Externo">Seleccionar Plan</button>
+        </article>
+
+        <article class="subscription-card subscription-card-custom">
+          <h3>Plan a medida</h3>
+          <p class="subscription-description">Una suscripción diseñada alrededor de tu empresa, tus prioridades y tu presupuesto.</p>
+          <p class="subscription-price subscription-price-custom"><span>A medida</span></p>
+          <ul class="subscription-features">
+            <li>Servicios adaptados a tus necesidades</li>
+            <li>Horas y prioridades acordadas contigo</li>
+            <li>Una propuesta clara, sin paquetes que no necesitas</li>
+          </ul>
+          <button class="subscription-button" type="button" data-plan="Suscripción a medida" data-price="A medida"
+            aria-label="Diseñar una suscripción a medida">Diseñar mi plan</button>
+        </article>
+      </div>
+
+      <div class="subscription-cta">
+        <h2>¿No sabes qué plan necesitas? Hablemos 15 minutos.</h2>
+        <a href="https://calendar.app.google/vzAYUSdmFj9Fzy8w6" target="_blank" rel="noopener noreferrer"
+          aria-label="Agendar llamada de valoración en Google Calendar">Agendar llamada de valoración</a>
       </div>
     </div>
+
+    <dialog class="subscription-dialog" id="subscription-dialog" aria-labelledby="subscription-dialog-title"
+      aria-describedby="subscription-dialog-description">
+      <div class="subscription-dialog-header">
+        <div>
+          <p class="subscription-eyebrow">Tu próximo paso</p>
+          <h2 id="subscription-dialog-title">Solicitar un plan</h2>
+        </div>
+        <button class="subscription-dialog-close" type="button" aria-label="Cerrar ventana"
+          data-close-subscription-dialog>&times;</button>
+      </div>
+      <p id="subscription-dialog-description" class="subscription-dialog-description">
+        Déjanos tus datos y nos pondremos en contacto contigo.
+      </p>
+      <p class="subscription-dialog-plan" data-plan-summary></p>
+      <form id="subscription-form" action="https://formspree.io/f/meeljyjj" method="POST">
+        <input type="hidden" name="plan" id="subscription-plan" />
+        <input type="hidden" name="price" id="subscription-price" />
+        <div class="subscription-dialog-fields">
+          <label for="subscription-name">Nombre</label>
+          <input id="subscription-name" name="name" type="text" autocomplete="name" required />
+          <label for="subscription-email">Correo electrónico</label>
+          <input id="subscription-email" name="email" type="email" autocomplete="email" required />
+          <label for="subscription-company">Empresa (opcional)</label>
+          <input id="subscription-company" name="company" type="text" autocomplete="organization" />
+          <label for="subscription-needs" data-subscription-needs-label>¿Qué necesita tu empresa? (opcional)</label>
+          <textarea id="subscription-needs" name="needs" rows="4"></textarea>
+        </div>
+        <p class="subscription-form-status" role="status" aria-live="polite" hidden></p>
+        <button class="subscription-dialog-submit" type="submit">
+          <span data-subscription-submit-text>Enviar solicitud</span>
+        </button>
+      </form>
+    </dialog>
   </section>
 
   <!-- Process Section -->
